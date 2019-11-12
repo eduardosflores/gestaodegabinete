@@ -35,8 +35,6 @@
 
     <div id="main" class="container">
     <h1 class="h2">Agenda</h1>
-    <hr>
-
 
     <div id='calendar'></div>
 

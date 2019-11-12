@@ -30,7 +30,6 @@
     ?>
 
     <div class="container" id="main">
-        <div class="page-header">
             <?php
                 if (isset($_GET['msg'])){
                     echo '<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';
@@ -39,7 +38,6 @@
                 }
             ?>
         <h1 class="h2">Cadastro das Chaves do Google Agenda</h1>
-        </div>
 
         <form id="formId" name="form" class="form-horizontal" action="action_cad_agenda.php" method="post" autocomplete="off">
 
@@ -99,7 +97,7 @@
                     if($('.alert').length){
                         $('.alert').remove();
                     }
-                    $('.page-header').prepend(errmsg);
+                    $('#main').prepend(errmsg);
                     console.log('Request failed', xhr);
                     return false;
                 }

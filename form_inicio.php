@@ -24,20 +24,18 @@
         ?>
         
         <div id="main" class="container">
-            <div class="page-header">
-                <h1 class="h2">
-                    <?php 
-                    $resultado=$mysqli->query("SELECT nom_vereador, ind_sexo, img_foto FROM gab_vereador");
-                    if ($resultado->num_rows){
-                        $aux=1;
-                        $linha=$resultado->fetch_object();
-                        echo "Parlamentar ".$linha->nom_vereador;
-                    }else{
-                        echo "<a href=\"form_cad_vereador.php\">Bem vindo, gostaria de cadastrar o(a) Parlamentar?</a>";
-                    }
-                    ?>
-                </h1>
-            </div>
+            <h1 class="h2">
+                <?php 
+                $resultado=$mysqli->query("SELECT nom_vereador, ind_sexo, img_foto FROM gab_vereador");
+                if ($resultado->num_rows){
+                    $aux=1;
+                    $linha=$resultado->fetch_object();
+                    echo "Parlamentar ".$linha->nom_vereador;
+                }else{
+                    echo "<a href=\"form_cad_vereador.php\">Bem vindo, gostaria de cadastrar o(a) Parlamentar?</a>";
+                }
+                ?>
+            </h1>
 
             <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog modal-dialog-centered" role="document">

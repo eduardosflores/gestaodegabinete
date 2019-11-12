@@ -123,8 +123,8 @@ body {
 .img-field img{
     max-width: 100%;
 }
-.page-header {
-    margin-top: 20px;
+.alert, .h2{
+    margin-top: 10px;
 }
 .divider{
     background-color: #C5C5C5 !important;
