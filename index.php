@@ -23,26 +23,21 @@ session_start();
     
      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	  <link href="css/gabinete.css" rel="stylesheet">
-	 
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-      
-    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
-    
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/gabinete.css" rel="stylesheet">
+    <style> body{background-color: #eee;} </style>
 
     <script src="js/jquery.js"></script>
-    
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-
-    <script type="text/JavaScript" src="js/sha512.js"></script> 
-    
-    <script type="text/JavaScript" src="js/forms.js"></script> 
+    <script src="js/bootstrap.js"></script>
+    <script src="js/sha512.js"></script> 
+    <script src="js/forms.js"></script> 
         
   </head>
 
   <body> 
       
-    <div class="container" style="margin: auto">
+    <div class="container">
         <!--<img src="logo.png" class="center-block img-responsive">-->
 
         <form class="form-signin" action="login/process_login.php" method="post">
