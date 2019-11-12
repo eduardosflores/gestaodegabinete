@@ -1,0 +1,177 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative !important;
+    min-height: 100% !important;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    padding-top: 80px;
+}
+.wrapper{
+    display: flex;
+    align-items: stretch;
+}
+.mtab{
+    font-size:14px;
+}
+.bottom {position: absolute; padding: 1%; bottom: 0; width: 100%; font-size:12px; background-color: #93CAF0;}
+
+
+/* Theme colors */
+.navbar-inverse {
+    background-color: #28608F;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: white;
+}
+.navbar-default{
+    background-color: #337AB7;
+}
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover{
+    color: white !important;
+}
+
+
+/* Dropdown */
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a:hover {
+    color: #337AB7;
+    background-color: #337AB7;
+}
+.navbar-nav>li>.dropdown-menu {
+    background-color: #eee !important;
+}
+.navbar-nav>li>.dropdown-menu>li>a{
+    color: black !important;
+}
+.navbar-nav>li>.dropdown-menu>li>a:hover,
+.navbar-nav>li>.dropdown-menu>li>a:focus{
+    color: white;
+    background-color: #93CAF0;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #255885;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ccc;
+    color: #A7D3FA;
+}
+
+/* End theme colors
+-------------------------------------------------- */
+
+/* Navbar positions */
+.navbar-inverse,
+.navbar-inverse.container-fluid,
+.nav1.navbar-nav li a,
+.nav1 ul.nav.navbar-nav>li>a.navbar-brand {
+    min-height: 0px;
+    line-height: 20px;
+    height: 30px !important;
+}
+.nav1 .navbar-nav>li>a,
+.nav1 .navbar-nav>li>a.navbar-brand{
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.nav-exit{
+    position: absolute !important;
+    right: 0;
+}
+.navbar-nav{
+    width: 100% !important;
+    margin: 0 !important;
+}
+.navbar-brand{
+    margin-left: -15px !important;
+}
+.nav2{
+    margin-top: 30px;
+}
+
+
+
+
+
+/* Responsive table overflow */
+.table-of{
+    overflow-x:auto;
+}
+.img-field{
+    max-width: 285px;
+    max-height: 500px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+.img-field img{
+    max-width: 100%;
+}
+.page-header {
+    margin-top: 20px;
+}
+.divider{
+    background-color: #C5C5C5 !important;
+}
+
+/*Card Style
+-------------------------------------------------- */
+.inicio-card{
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: white;
+    position: relative;
+    margin-bottom: 15px;
+}
+.card-header:first-child{
+    border-radius: 2px 2px 0 0;
+    background-color: #28608F;
+    color: white;
+}
+.card-header{
+    font-size: 30px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.card-header a{
+    color: white;
+    display:inline-block;
+    width:100%;
+}
+.card-header svg{
+    position: absolute;
+    right: 5;
+    top: 10;
+}
+.card-header h1{
+    margin: 0;
+}
+.fc-list-heading,
+.card-sub-header{
+    background-color: #93CAF0;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+}
+.card-body{
+    height: 500px;
+    overflow-y: auto;
+}
+.card-body p{
+    margin: 0;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.fc-list-view {
+    border: 0 none !important;
+}
