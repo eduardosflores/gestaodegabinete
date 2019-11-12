@@ -93,8 +93,7 @@ body {
 .navbar-brand{
     margin-left: -15px !important;
 }
-.nav2,
-.nav2 ul{
+.nav2{
     margin-top: 30px;
     height: 40px;
     line-height: 30px;
@@ -103,6 +102,9 @@ body {
 .nav2 .navbar-nav>li>a{
     padding-top: 10px !important;
     padding-bottom: 10px !important;
+}
+.navbar{
+    border: none;
 }
 
 
@@ -146,7 +148,6 @@ body {
     font-size: 25px;
     font-weight: bold;
     padding: 5px;
-    border-bottom: 1px solid #ccc;
 }
 .card-header a{
     color: white;
@@ -164,7 +165,6 @@ body {
 .fc-list-heading,
 .card-sub-header{
     background-color: #93CAF0;
-    border-bottom: 1px solid #ccc;
     padding: 5px;
     font-size: 20px;
     color: black;
