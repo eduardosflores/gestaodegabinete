@@ -62,9 +62,9 @@ Descrição: Cabeçalho do sistema
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <b>CADASTROS&#9662;</b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="form_cad_agenda.php"><b>Chaves da Agenda</b></a></li>
-                  <li role="separator" class="divider"></li>
                     <li><a href="form_cad_vereador.php"><b>Parlamentar</b></a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="form_cad_agenda.php"><b>Chaves do Google Agenda</b></a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="form_cad_tipo_atendimento.php"><b>Tipo de Atendimento</b></a></li>
                     <li><a href="form_cad_status_atendimento.php"><b>Situação do Atendimento</b></a></li>

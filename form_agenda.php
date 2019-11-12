@@ -254,8 +254,8 @@
 
     <?php    }else{ ?>
         <div id="main" class="container" style="margin-top: 20px;">
-            <p>Por favor <a href="form_cad_agenda.php">registre</a> uma Chave de API do google agenda</p>
-        </div>`;
+            <p>Pra ter acesso a Agenda do sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
+        </div>
     <?php    
             }
         }

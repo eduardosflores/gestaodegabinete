@@ -38,7 +38,7 @@
                     echo '<div class="alert alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
                 }
             ?>
-        <h1 class="h2">Cadastrar a Chave</h1>
+        <h1 class="h2">Cadastro das Chaves do Google Agenda</h1>
         </div>
 
         <form id="formId" name="form" class="form-horizontal" action="action_cad_agenda.php" method="post" autocomplete="off">
@@ -50,7 +50,7 @@
             ?>
 
             <div class="form-group">
-                <label class="col-md-2 control-label" for="googleCalendarApiKey" autocomplete="on">API Key:</label>
+                <label class="col-md-2 control-label" for="googleCalendarApiKey" autocomplete="on">Google API Key:</label>
                 <div class="col-md-5">
                     <input id="googleCalendarApiKey" name="api_key" type="text" required placeholder="" class="form-control input-md"
                             value="<?php if (isset($aux)) {echo escape($linha->api_key);}?>">
@@ -58,7 +58,7 @@
             </div>
 
             <div class="form-group">
-                <label class="col-md-2 control-label" for="googleCalendarId" autocomplete="on">Calendar ID:</label>
+                <label class="col-md-2 control-label" for="googleCalendarId" autocomplete="on">Google Calendar ID:</label>
                 <div class="col-md-5">
                     <input id="googleCalendarId" name="calendar_id" type="text" required placeholder="" class="form-control input-md"
                             value="<?php if (isset($aux)) {echo escape($linha->calendar_id);}?>">

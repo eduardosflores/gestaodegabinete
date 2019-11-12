@@ -268,7 +268,7 @@
             <script>
             (function insertCardBody (){
                 var regmsg =    `<div class="card-body">
-                                    <p>Por favor <a href="form_cad_agenda.php">registre</a> uma Chave de API do google agenda</p>
+                                    <p>Pra ter acesso a Agenda do sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
                                 </div>`;
                 $('#calendar').append(regmsg);
 
