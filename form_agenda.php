@@ -48,19 +48,19 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <dl class="dl-horizontal">
-                        <dt id="titulo"></dt>
-                        <dd></dd>
-
-                        <dt>Quando:</dt>
-                        <dd id="duracao"></dd>
-    
-                        <dt id="titulolocal">Onde:</dt>
-                        <dd id="local"></dd>
-    
-                        <dt id="titulodescricao">Descrição:</dt>
-                        <dd id="descricao"></dd>
-                    </dl>
+                    <h2 class="h3 text-center" id="titulo" style="margin-top: 0px;"></h2>
+                    <p>
+                        <strong><span>Quando: </span></strong>
+                        <span id="duracao"></span>
+                    </p>
+                    <p>
+                        <strong><span id="titulolocal">Onde: </span></strong>
+                        <span id="local"></span>
+                    </p>
+                    <p>
+                        <strong><span id="titulodescricao">Descrição: </span></strong>
+                        <span id="descricao"></span>
+                    </p>
                 </div>
             </div>
         </div>

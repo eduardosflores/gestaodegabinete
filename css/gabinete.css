@@ -134,6 +134,11 @@ body {
     top: 50% !important;
     transform: translate(0, -50%) !important;
 }
+.modal-header .close{
+    position: absolute !important;
+    right: 15px;
+    top: 20px;
+}
 /*Card Style
 -------------------------------------------------- */
 .inicio-card{
