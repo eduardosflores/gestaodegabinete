@@ -16,7 +16,7 @@ body {
 .mtab{
     font-size:14px;
 }
-.bottom {position: absolute; padding: 1%; bottom: 0; width: 100%; font-size:12px; background-color: #93CAF0;}
+.bottom {position: absolute; padding: 1%; bottom: 0; width: 100%; font-size:12px; background-color: #eee;}
 .bottom a{color: #28608F; font-weight: bold;}
 
 
@@ -109,7 +109,15 @@ body {
 }
 
 
-
+/* Forms Theme
+-------------------------------------------------- */
+.form-control{
+    height: 28px;
+    padding: 2px;
+}
+.form-group {
+    margin-bottom: 8px;
+}
 
 /* Responsive table overflow */
 .table-of{
@@ -124,8 +132,14 @@ body {
 .img-field img{
     max-width: 100%;
 }
+.thumbnail {
+    border: 1px solid #f0f0f0;
+}
 .alert, .h2{
     margin-top: 10px;
+}
+.h2{
+    font-size: 25px;
 }
 .divider{
     background-color: #C5C5C5 !important;
@@ -143,7 +157,7 @@ body {
 -------------------------------------------------- */
 .inicio-card{
     border-radius: 3px;
-    border: 1px solid #ccc;
+    border: 1px solid #f0f0f0;
     background-color: white;
     position: relative;
     margin-bottom: 15px;
@@ -154,7 +168,7 @@ body {
     color: white;
 }
 .inicio-card>.card-header{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     padding: 5px;
 }
@@ -173,9 +187,10 @@ body {
 }
 .fc-list-heading,
 .card-sub-header{
-    background-color: #93CAF0;
+    /* background-color: #93CAF0; */
+    background-color: #eee;
     padding: 5px;
-    font-size: 20px;
+    font-size: 16px;
     color: black;
 }
 .inicio-card>.card-body{
@@ -187,13 +202,21 @@ body {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #f0f0f0;
 }
 .fc-list-view {
     border: 0 none !important;
 }
 .fc-body.card-body{
     background-color:white;
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    border-top: 1px solid #f0f0f0;
 }
 
 /* singin 

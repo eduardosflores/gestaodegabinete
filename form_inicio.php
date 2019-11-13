@@ -84,7 +84,7 @@
                 <div class="col-md-5">
                     <div class="inicio-card">
                         <div class="card-header"><a href="form_agenda.php">Agenda<i class="far fa-calendar"></i></a></div>
-                        <div id='calendar'></div>
+                        <div class="card-body" id='calendar'></div>
                     </div>
                 </div>
 
@@ -268,12 +268,8 @@
         <?php   }else{ ?>
             <script>
             (function insertCardBody (){
-                var regmsg =    `<div class="card-body">
-                                    <p>Pra ter acesso a Agenda do sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
-                                </div>`;
+                var regmsg = `<p>Pra ter acesso a Agenda do sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>`;
                 $('#calendar').append(regmsg);
-
-                calendarEl.appendChild(newDiv);
             })();
             </script>
         <?php    

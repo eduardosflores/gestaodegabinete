@@ -34,7 +34,7 @@
     ?>
 
     <div id="main" class="container">
-    <h1 class="h2">Agenda</h1>
+    <h1 class="h2">Agenda de Eventos</h1>
 
     <div id='calendar'></div>
 
