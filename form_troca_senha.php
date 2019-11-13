@@ -38,18 +38,15 @@ session_start();
             }
     ?>
 
-      <div class="container" id="main">
-          
-            <div class="page-header">
-                <?php if (isset($_GET['msg'])){
-                    echo '<div class="alert acesso alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';                     
-                   }
-                 else if (isset($_GET['err'])){
-                     echo '<div class="alert acesso alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
-                 }
-                 ?>
-                <h1 class="h2">Troca de Senha</h1>
-            </div>
+    <div class="container" id="main">
+
+        <?php if (isset($_GET['msg'])){
+            echo '<div class="alert acesso alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';                     
+        }else if (isset($_GET['err'])){
+            echo '<div class="alert acesso alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
+        }
+        ?>
+        <h1 class="h2">Troca de Senha</h1>
           
             <form  name="form" class="form-horizontal" method="post" action="action_troca_senha.php">
                 

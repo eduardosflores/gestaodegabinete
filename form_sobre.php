@@ -23,13 +23,11 @@ session_start();
 
             <!-- Begin page content -->
             <div class="container" id="main">
-                <div class="page-header">
-                    <h1 class="h2">Gestão de Gabinete</h1>
-                    <h2>Versão 5.0</h2>                  
-                </div>
+                <h1 class="h2">Gestão de Gabinete</h1>
+                <p class="h3">Versão 5.0</p>
                 
-                <h4>Desenvolvido pelo Serviço Tecnológico em Informática</h4>
-                <h4>Câmara Municipal de Bauru / São Paulo</h4>
+                <p class="h4">Desenvolvido pelo Serviço Tecnológico em Informática</p>
+                <p class="h4">Câmara Municipal de Bauru / São Paulo</p>
             </div>
 
             <?php include 'includes/footer.html'; ?>

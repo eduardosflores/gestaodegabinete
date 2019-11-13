@@ -130,18 +130,17 @@
         ?>
             <div class="container" id="main">
                     
-                <div class="page-header">
-                    <?php if (isset($_GET['msg']))
-                    {
-                        echo '<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';                     
-                    }
-                    else if (isset($_GET['err']))
-                    {
-                        echo '<div class="alert alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
-                    }
-                 ?>
-                    <h1 class="h2">Cadastro de Atendimento</h1>
-                </div>
+                <?php if (isset($_GET['msg']))
+                {
+                    echo '<div class="alert alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';                     
+                }
+                else if (isset($_GET['err']))
+                {
+                    echo '<div class="alert alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
+                }
+                ?>
+                <h1 class="h2">Cadastro de Atendimento</h1>
+
                 <form  if="myForm" name="form" class="form-horizontal" action="action_cad_atendimento.php" method="post" onsubmit="return checarCampos()">
                     
                     <?php

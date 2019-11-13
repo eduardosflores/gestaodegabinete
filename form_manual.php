@@ -19,19 +19,14 @@ session_start();
         <?php include 'includes/cabecalho.php'; ?>
         <div class="container"  id="main">
             
-            <div class="page-header">
-                <?php if (isset($_GET['msg'])){
-                    echo '<div class="alert acesso alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';                     
-                   }
-                 else if (isset($_GET['err'])){
-                     echo '<div class="alert acesso alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
-                 }
-                 ?>
-                <h1 class="h2">Manual do Usuário</h1>
-                    
-                
-                
-            </div>
+            <?php if (isset($_GET['msg'])){
+                echo '<div class="alert acesso alert-success fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['msg'].'</strong></div>';                     
+            }else if (isset($_GET['err'])){
+                echo '<div class="alert acesso alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
+            }
+            ?>
+            <h1 class="h2">Manual do Usuário</h1>
+
             <iframe src="Manual_do_Usuario.pdf" width="800" height="650" style="border: none;"></iframe>
         </div>
         

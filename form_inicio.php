@@ -24,23 +24,21 @@
         ?>
         
         <div id="main" class="container">
-            <div class="page-header">
-                <h1 class="h2">
-                    <?php 
-                    $resultado=$mysqli->query("SELECT gab_vereador.nom_vereador, img_foto, "
-                                              ." gab_vereador.GAB_CARGO_POLITICO_cod_car_pol cod_car_pol, gab_cargo_politico.nom_car_pol AS nom_car_pol "
-                                              ." FROM gab_vereador"
-                                              ." LEFT JOIN gab_cargo_politico ON gab_cargo_politico.cod_car_pol = gab_vereador.GAB_CARGO_POLITICO_cod_car_pol ");
-                    if ($resultado->num_rows){
-                        $aux=1;
-                        $linha=$resultado->fetch_object();
-                        echo $linha->nom_car_pol." ".$linha->nom_vereador;
-                    }else{
-                        echo "<a href=\"form_cad_vereador.php\">Bem vindo, gostaria de cadastrar o Agente Político?</a>";
-                    }
-                    ?>
-                </h1>
-            </div>
+            <h1 class="h2">
+                <?php 
+                $resultado=$mysqli->query("SELECT gab_vereador.nom_vereador, img_foto, "
+                                            ." gab_vereador.GAB_CARGO_POLITICO_cod_car_pol cod_car_pol, gab_cargo_politico.nom_car_pol AS nom_car_pol "
+                                            ." FROM gab_vereador"
+                                            ." LEFT JOIN gab_cargo_politico ON gab_cargo_politico.cod_car_pol = gab_vereador.GAB_CARGO_POLITICO_cod_car_pol ");
+                if ($resultado->num_rows){
+                    $aux=1;
+                    $linha=$resultado->fetch_object();
+                    echo $linha->nom_car_pol." ".$linha->nom_vereador;
+                }else{
+                    echo "<a href=\"form_cad_vereador.php\">Bem vindo, gostaria de cadastrar o Agente Político?</a>";
+                }
+                ?>
+            </h1>
 
             <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -52,19 +50,19 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <dl class="dl-horizontal">
-                                <dt id="titulo"></dt>
-                                <dd></dd>
-
-                                <dt>Quando:</dt>
-                                <dd id="duracao"></dd>
-            
-                                <dt id="titulolocal">Onde:</dt>
-                                <dd id="local"></dd>
-            
-                                <dt id="titulodescricao">Descrição:</dt>
-                                <dd id="descricao"></dd>
-                            </dl>
+                            <h2 class="h3 text-center" id="titulo" style="margin-top: 0px;"></h2>
+                            <p>
+                                <strong><span>Quando: </span></strong>
+                                <span id="duracao"></span>
+                            </p>
+                            <p>
+                                <strong><span id="titulolocal">Onde: </span></strong>
+                                <span id="local"></span>
+                            </p>
+                            <p>
+                                <strong><span id="titulodescricao">Descrição: </span></strong>
+                                <span id="descricao"></span>
+                            </p>
                         </div>
                     </div>
                 </div>

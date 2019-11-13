@@ -7,7 +7,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    padding-top: 80px;
+    padding-top: 70px;
 }
 .wrapper{
     display: flex;
@@ -17,6 +17,7 @@ body {
     font-size:14px;
 }
 .bottom {position: absolute; padding: 1%; bottom: 0; width: 100%; font-size:12px; background-color: #93CAF0;}
+.bottom a{color: #28608F; font-weight: bold;}
 
 
 /* Theme colors */
@@ -95,8 +96,17 @@ body {
 }
 .nav2{
     margin-top: 30px;
+    height: 40px;
+    line-height: 30px;
+    min-height: 0px;
 }
-
+.nav2 .navbar-nav>li>a{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.navbar{
+    border: none;
+}
 
 
 
@@ -114,13 +124,21 @@ body {
 .img-field img{
     max-width: 100%;
 }
-.page-header {
-    margin-top: 20px;
+.alert, .h2{
+    margin-top: 10px;
 }
 .divider{
     background-color: #C5C5C5 !important;
 }
-
+.modal-dialog{
+    top: 50% !important;
+    transform: translate(0, -50%) !important;
+}
+.modal-header .close{
+    position: absolute !important;
+    right: 15px;
+    top: 20px;
+}
 /*Card Style
 -------------------------------------------------- */
 .inicio-card{
@@ -135,37 +153,36 @@ body {
     background-color: #28608F;
     color: white;
 }
-.card-header{
-    font-size: 30px;
+.inicio-card>.card-header{
+    font-size: 25px;
+    font-weight: bold;
     padding: 5px;
-    border-bottom: 1px solid #ccc;
 }
-.card-header a{
+.inicio-card>.card-header a{
     color: white;
     display:inline-block;
     width:100%;
 }
-.card-header svg{
+.inicio-card>.card-header svg{
     position: absolute;
     right: 5;
     top: 10;
 }
-.card-header h1{
+.inicio-card>.card-header h1{
     margin: 0;
 }
 .fc-list-heading,
 .card-sub-header{
     background-color: #93CAF0;
-    border-bottom: 1px solid #ccc;
     padding: 5px;
     font-size: 20px;
     color: black;
 }
-.card-body{
+.inicio-card>.card-body{
     height: 500px;
     overflow-y: auto;
 }
-.card-body p{
+.inicio-card>.card-body p{
     margin: 0;
     padding: 8px;
     line-height: 1.42857143;
@@ -174,4 +191,44 @@ body {
 }
 .fc-list-view {
     border: 0 none !important;
+}
+.fc-body.card-body{
+    background-color:white;
+}
+
+/* singin 
+-------------------------------------------------- */
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="nome"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="senha"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
