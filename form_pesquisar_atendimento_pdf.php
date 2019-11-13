@@ -18,10 +18,10 @@
     $pdf->SetRightMargin(1);
     $pdf->AddPage();
     $pdf->Ln(0.5);
-    $pdf->SetFont("Arial","B",15);
-    $pdf->Cell(0,0.6,"Relatório de Atendimentos - Gestão de Gabinete",0,1,'C');
-    $pdf->Ln(0.3);
-    $pdf->Cell(0,0,"",1);
+    $pdf->SetFont("Arial","BU",15);
+    $pdf->Cell(0,0.6,"Gestão de Gabinete - Relatório de Atendimentos",0,1,'C');
+    //$pdf->Ln(0.3);
+    //$pdf->Cell(0,0,"",1);
     $pdf->Ln(0.5);
     ///////////////CABEÇALHO DA TABELA /////////////////////
     $pdf->SetFont("Arial","B",9);

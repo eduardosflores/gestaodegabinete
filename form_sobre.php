@@ -25,7 +25,7 @@ session_start();
             <div class="container" id="main">
                 <div class="page-header">
                     <h1 class="h2">Gestão de Gabinete</h1>
-                    <h2>Versão 4.0</h2>                  
+                    <h2>Versão 5.0</h2>                  
                 </div>
                 
                 <h4>Desenvolvido pelo Serviço Tecnológico em Informática</h4>

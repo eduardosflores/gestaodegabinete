@@ -140,7 +140,7 @@
                         echo '<div class="alert alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
                     }
                  ?>
-                    <h1 class="h2">Cadastro de Atendimento Parlamentar</h1>
+                    <h1 class="h2">Cadastro de Atendimento</h1>
                 </div>
                 <form  if="myForm" name="form" class="form-horizontal" action="action_cad_atendimento.php" method="post" onsubmit="return checarCampos()">
                     

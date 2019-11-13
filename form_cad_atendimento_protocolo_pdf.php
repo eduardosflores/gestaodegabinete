@@ -18,31 +18,16 @@
     $results = $mysqli->query($sql_pdf);
     $r=$results->fetch_object();
     
-    $sql_pdf2 = ("SELECT nom_vereador, ind_sexo FROM gab_vereador");
-    $results2 = $mysqli->query($sql_pdf2);
-    $r2=$results2->fetch_object();
-    if ($results2->num_rows){
-		$ind_sexo=$r2->ind_sexo;
-		$nom_vereador=$r2->nom_vereador;
-    }
-	else{
-		$ind_sexo=NULL;
-		$nom_vereador=NULL;
-	}
     $pdf = new PDF("P","cm","A4");
-    
 	$pdf->setConnection($mysqli);
     $pdf->SetLeftMargin(1);
     $pdf->SetRightMargin(1);
     $pdf->AddPage();
-    $pdf->SetFont("Arial","B",18);
-    if ($nom_vereador!=NULL){
-        $pdf->Cell(0,1,"Parlamentar ".$nom_vereador,0,1,'C');
-    }
-    $pdf->SetFont("Arial","B",14);
-    $pdf->Cell(0,0.6,"Atendimento Parlamentar - Gestão de Gabinete",0,1,'C');
-    $pdf->Ln(0.3);
-    $pdf->Cell(0,0,"",1);
+    $pdf->Ln(0.5);
+    $pdf->SetFont("Arial","BU",15);
+    $pdf->Cell(0,0.6,"Gestão de Gabinete - Atendimento",0,1,'C');
+    //$pdf->Ln(0.3);
+    //$pdf->Cell(0,0,"",1);
     $pdf->Ln(0.5);
 
     $pdf->SetFont("Arial","",10);        

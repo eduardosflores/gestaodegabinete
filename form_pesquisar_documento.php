@@ -143,7 +143,7 @@
                         echo '<div class="alert alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
                     }
                  ?>
-                    <h1 class="h2">Relatório: Documentos Parlamentares</h1>
+                    <h1 class="h2">Relatório: Documentos</h1>
                 </div>
                 <form  name="form" class="form-horizontal" type="post"  autocomplete="off"  onsubmit="return checarCampos()">
                     

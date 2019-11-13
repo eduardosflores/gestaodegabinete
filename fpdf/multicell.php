@@ -111,20 +111,28 @@
         function Header()
         {
 			
-			$sql_pdf = ("SELECT nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, num_cep FROM gab_vereador");
+            $sql_pdf = ("SELECT gab_vereador.nom_vereador, gab_vereador.nom_orgao, "
+                        . "gab_vereador.GAB_CARGO_POLITICO_cod_car_pol cod_car_pol, gab_cargo_politico.nom_car_pol AS nom_car_pol, "
+                        . "gab_vereador.nom_endereco, gab_vereador.nom_numero, gab_vereador.nom_complemento, gab_vereador.nom_cidade, gab_vereador.nom_estado, gab_vereador.num_cep "
+                        . "FROM gab_vereador "
+                        . "LEFT JOIN gab_cargo_politico ON gab_cargo_politico.cod_car_pol = gab_vereador.GAB_CARGO_POLITICO_cod_car_pol ");
+            
 			$results = $this->mysqli->query($sql_pdf);
 			$r=$results->fetch_object();
 			
             if ($results->num_rows){
-				$this->SetFont("Arial","B",25);
-				$this->Cell(0,0.6,"Câmara Municipal de ".$r->nom_cidade,0,1,'C');		
-				$this->Ln(0.3);
-				$this->SetFont("Arial","B",9);
+                $this->SetFont("Arial","B",15);
+				$this->Cell(0,0.6,$r->nom_car_pol." ".$r->nom_vereador,0,1,'C');		
+				//$this->Ln(0.2);
+				$this->SetFont("Arial","",12);
+				$this->Cell(0,0.6,$r->nom_orgao,0,1,'C');		
+				//$this->Ln(0.3);
+				$this->SetFont("Arial","",9);
                 $this->Cell(0,0.6, $r->nom_endereco.", ".$r->nom_numero." - ".$r->nom_complemento." - ".$r->nom_cidade." / ".$r->nom_estado." - CEP:".$r->num_cep,0,1,'C');
-                $this->Ln(0.5);
+                //$this->Ln(0.5);
 			}
 			else{
-				$this->Ln(0.5);
+				//$this->Ln(0.5);
 			}	
             //$this->Image('logo.png',1,"0.5",2.5,2);
             //$this->Image('camara.jpg',18,"0.5",2,2);

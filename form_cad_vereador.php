@@ -29,7 +29,7 @@
         <?php if (login_check($mysqli) == true) {
                 include 'includes/cabecalho.php';
 
-                    if ($resultado=$mysqli->query("SELECT nom_vereador, ind_sexo , nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, num_cep, img_foto FROM gab_vereador")){
+                    if ($resultado=$mysqli->query("SELECT nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, num_cep, img_foto FROM gab_vereador")){
                         if ($resultado->num_rows){
                             $aux=1;
                             $linha=$resultado->fetch_object();
@@ -46,7 +46,7 @@
                      echo '<div class="alert alert-warning fade in "><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'.$_GET['err'].'</strong></div>';
                  }
                  ?>
-                    <h1 class="h2">Cadastro do(a) Parlamentar</h1>
+                    <h1 class="h2">Cadastro do Agente Político</h1>
                 </div>
 
                 <form  name="form" class="form-horizontal" action="action_cad_vereador.php" method="post" enctype="multipart/form-data">
@@ -59,35 +59,67 @@
 
 
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="nome" autocomplete="on">Nome:</label>
+                        <label class="col-md-2 control-label">Cargo Político:</label>
+                        <?php
+                        if ($resultado=$mysqli->query("SELECT cod_car_pol, nom_car_pol, ind_car_pol FROM gab_cargo_politico WHERE ind_car_pol ='A' order by nom_car_pol")){
+                            if ($resultado->num_rows){?>
+
+                               <div class="col-md-3">
+                                   <select class="meuselect" name="cod_car_pol">
+                                       <option value="">Selecione</option>
+                                       <?php
+                                       foreach ($resultado as $linha_set_gab)
+                                       {?>
+                                       <option value="<?php echo $linha_set_gab['cod_car_pol'];?>"
+                                           <?php if (isset($aux) && $linha->GAB_CARGO_POLITICO_cod_car_pol==$linha_set_gab['cod_car_pol']){
+                                            echo "selected";}?>> <?php echo $linha_set_gab['nom_car_pol'];?>
+                                       </option> 
+                                       <?php
+                                       }?>
+                                   </select>
+                                </div><?php 
+                                $cond = false;
+                            }
+                            else
+                            {?>                          
+                                <div class="col-md-3">
+                                    <select class="form-control" name="cod_car_pol" disabled="true">
+                                       <option value="">Selecione</option>
+                                       <option value="Não existe Cargo Político cadastrado">
+                                       </option> 
+                                   </select>
+                                </div>
+                                <div class="col-md-5">
+                                   <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Cargo Político cadastrado.</span>
+                                </div><?php 
+                                $cond = true;
+                            }
+                        }
+                        ?>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="nome" autocomplete="on">Nome do Agente Político:</label>
                         <div class="col-md-5">
                             <input id="nome" name="nom_vereador" type="text" required placeholder="" class="form-control input-md"
                                    value="<?php if (isset($aux)) {echo escape($linha->nom_vereador);}?>">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="radios">Sexo:</label>
-                        <div class="col-md-3">
-                            <div class="radio">
-                                <label for="masculino">
-                                    <input type="radio" name="ind_sexo" required id="masculino" value="M" <?php if (isset($aux)) {echo $linha->ind_sexo == 'M' ? "checked" : null;}?>>
-                                    Masculino&nbsp&nbsp&nbsp
-                                </label>
-                                <label for="feminino">
-                                    <input type="radio" name="ind_sexo" required id="feminino" value="F" <?php if (isset($aux)) {echo $linha->ind_sexo == 'F' ? "checked" : null;}?> >
-                                    Feminino
-                                </label>
-                            </div>
-                        </div>
-                    </div>
 					
 					<div class="form-group">
-                        <label class="col-md-2 control-label" for="radios"><u>Endereço da Câmara</u></label>
+                        <label class="col-md-2 control-label" for="radios"><u>Endereço do Órgão</u></label>
                         <div class="col-md-3">
                         
                         </div>
                     </div>
-					
+					<div class="form-group">
+                        <label class="col-md-2 control-label" for="cidade">Nome do Órgão:</label>
+                        <div class="col-md-4">
+                            <input id="nom_orgao" name="nom_orgao" required type="text" placeholder="" class="form-control input-md"
+                                   value="<?php if (isset($aux)) {echo escape($linha->nom_orgao);}?>">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="estado">Estado:</label>
                         <div class="col-md-2">
@@ -191,7 +223,7 @@
                     </div>
                     <?php } ?>
                     <div class="form-group">
-                            <label class="col-md-2 control-label">Foto:</label>
+                            <label class="col-md-2 control-label">Foto do Agente Político:</label>
                             <div class="col-md-5">
                                 <input type="file" name="foto"/>
                                 <span>Tamanho máximo:2 MB</span><br>

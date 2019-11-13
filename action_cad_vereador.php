@@ -16,12 +16,19 @@
                 //Alteração
                 
                 $nom_vereador = trim($_POST['nom_vereador']);
-                if (isset($_POST['ind_sexo']) && !empty($_POST['ind_sexo'])){
-                    $ind_sexo = trim($_POST['ind_sexo']);
+
+                if (isset($_POST['cod_car_pol']) && !empty($_POST['cod_car_pol']))
+                    $cod_car_pol = $_POST['cod_car_pol'];
+                else
+                    $cod_car_pol=NULL;
+
+                if (isset($_POST['nom_orgao']) && !empty($_POST['nom_orgao'])){
+                    $nom_orgao = trim($_POST['nom_orgao']);
                 }
-                else{
-                    $ind_sexo = NULL;
+                else {
+                    $nom_orgao = NULL;
                 }
+
                 if (isset($_POST['nom_estado']) && !empty($_POST['nom_estado'])){
                      $nom_estado = trim($_POST['nom_estado']);
                 }
@@ -92,8 +99,8 @@
                         // Transformando foto em dados (binário)
                         $conteudo = file_get_contents($foto['tmp_name']);
                         
-                        $update = $mysqli->prepare("UPDATE gab_vereador SET nom_vereador=?, ind_sexo=?, num_cep=?, nom_endereco=?, nom_numero=?, nom_complemento=?, nom_cidade=?, nom_estado=?, img_foto=?, tip_foto=?, tam_foto=?");
-                        $update->bind_param('ssssssssssi', $nom_vereador, $ind_sexo, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado, $conteudo, $tipo, $tamanho);
+                        $update = $mysqli->prepare("UPDATE gab_vereador SET nom_vereador=?, GAB_CARGO_POLITICO_cod_car_pol=?, nom_orgao=?, num_cep=?, nom_endereco=?, nom_numero=?, nom_complemento=?, nom_cidade=?, nom_estado=?, img_foto=?, tip_foto=?, tam_foto=?");
+                        $update->bind_param('sssssssssssi', $nom_vereador, $cod_car_pol, $nom_orgao, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado, $conteudo, $tipo, $tamanho);
 
                         if ($update->execute()) {
                             header('Location: form_cad_vereador.php?msg=Alteração realizada com sucesso!');
@@ -106,8 +113,8 @@
                     }
                     else { //NÃO foi selecionada uma imagem
                         
-                        $update = $mysqli->prepare("UPDATE gab_vereador SET nom_vereador=?, ind_sexo=?, num_cep=?, nom_endereco=?, nom_numero=?, nom_complemento=?, nom_cidade=?, nom_estado=?");
-                        $update->bind_param('ssssssss', $nom_vereador, $ind_sexo, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado);
+                        $update = $mysqli->prepare("UPDATE gab_vereador SET nom_vereador=?, GAB_CARGO_POLITICO_cod_car_pol=?, nom_orgao=?, num_cep=?, nom_endereco=?, nom_numero=?, nom_complemento=?, nom_cidade=?, nom_estado=?");
+                        $update->bind_param('sssssssss', $nom_vereador, $cod_car_pol, $nom_orgao, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado);
 
                         if ($update->execute()) {
                             header('Location: form_cad_vereador.php?msg=Alteração realizada com sucesso!');
@@ -124,12 +131,19 @@
                 //Inserção
 
                 $nom_vereador = trim($_POST['nom_vereador']);
-                if (isset($_POST['ind_sexo']) && !empty($_POST['ind_sexo'])){
-                    $ind_sexo = trim($_POST['ind_sexo']);
+
+                if (isset($_POST['cod_car_pol']) && !empty($_POST['cod_car_pol']))
+                    $cod_car_pol = $_POST['cod_car_pol'];
+                else
+                    $cod_car_pol=NULL;
+
+                if (isset($_POST['nom_orgao']) && !empty($_POST['nom_orgao'])){
+                    $nom_orgao = trim($_POST['nom_orgao']);
                 }
-                else{
-                    $ind_sexo = NULL;
+                else {
+                    $nom_orgao = NULL;
                 }
+
                 if (isset($_POST['nom_estado']) && !empty($_POST['nom_estado'])){
                      $nom_estado = trim($_POST['nom_estado']);
                 }
@@ -199,8 +213,8 @@
                         // Transformando foto em dados (binário)
                         $conteudo = file_get_contents($foto['tmp_name']);
                         
-                        $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, ind_sexo, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, img_foto, tip_foto, tam_foto) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                        $insert->bind_param('ssssssssssi', $nom_vereador, $ind_sexo, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado, $conteudo, $tipo, $tamanho);
+                        $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, img_foto, tip_foto, tam_foto) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                        $insert->bind_param('sssssssssssi', $nom_vereador, $cod_car_pol, $nom_orgao, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado, $conteudo, $tipo, $tamanho);
 
                         if ($insert->execute()) {
                             header('Location: form_cad_vereador.php?msg=Cadastro realizado com sucesso!');
@@ -214,8 +228,8 @@
                     }
                     else { //NÃO foi selecionada uma imagem
                         
-                         $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, ind_sexo, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
-                         $insert->bind_param('ssssssss', $nom_vereador, $ind_sexo, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado);
+                         $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
+                         $insert->bind_param('sssssssss', $nom_vereador, $cod_car_pol, $nom_orgao, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado);
 
                         if ($insert->execute()) {
                             header('Location: form_cad_vereador.php?msg=Cadastro realizado com sucesso!');

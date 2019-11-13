@@ -27,13 +27,16 @@
             <div class="page-header">
                 <h1 class="h2">
                     <?php 
-                    $resultado=$mysqli->query("SELECT nom_vereador, ind_sexo, img_foto FROM gab_vereador");
+                    $resultado=$mysqli->query("SELECT gab_vereador.nom_vereador, img_foto, "
+                                              ." gab_vereador.GAB_CARGO_POLITICO_cod_car_pol cod_car_pol, gab_cargo_politico.nom_car_pol AS nom_car_pol "
+                                              ." FROM gab_vereador"
+                                              ." LEFT JOIN gab_cargo_politico ON gab_cargo_politico.cod_car_pol = gab_vereador.GAB_CARGO_POLITICO_cod_car_pol ");
                     if ($resultado->num_rows){
                         $aux=1;
                         $linha=$resultado->fetch_object();
-                        echo "Parlamentar ".$linha->nom_vereador;
+                        echo $linha->nom_car_pol." ".$linha->nom_vereador;
                     }else{
-                        echo "<a href=\"form_cad_vereador.php\">Bem vindo, gostaria de cadastrar o(a) Parlamentar?</a>";
+                        echo "<a href=\"form_cad_vereador.php\">Bem vindo, gostaria de cadastrar o Agente Político?</a>";
                     }
                     ?>
                 </h1>
@@ -68,7 +71,7 @@
             </div>
 
             <div class="row">
-                <!-- Bloco Imagem Parlamentar -->
+                <!-- Bloco Imagem Agente Político -->
                 <div class="col-md-3 img-field">
                     <div class="thumbnail">
                         <?php if (isset($aux) && !empty($linha->img_foto)){?>

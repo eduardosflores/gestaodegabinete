@@ -33,7 +33,12 @@ if (isset($_GET['origem']) and !empty($_GET['origem']))
         //$_SESSION['sql']=$busca;
         $num_total = $mysqli->query($_SESSION['sql'])->num_rows;
        // if (isset($_POST['op_re'])){ //se op com remetente selecionada
-             $vereador="SELECT nom_vereador, ind_sexo, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, num_cep, img_foto, tip_foto, tam_foto FROM gab_vereador";
+
+             $vereador="SELECT gab_vereador.nom_vereador, gab_vereador.GAB_CARGO_POLITICO_cod_car_pol cod_car_pol, gab_cargo_politico.nom_car_pol AS nom_car_pol, "
+             ." gab_vereador.nom_endereco, gab_vereador.nom_numero, gab_vereador.nom_complemento, gab_vereador.nom_cidade, gab_vereador.nom_estado, gab_vereador.num_cep "
+             ." FROM gab_vereador"
+             ." LEFT JOIN gab_cargo_politico ON gab_cargo_politico.cod_car_pol = gab_vereador.GAB_CARGO_POLITICO_cod_car_pol ";
+
              $query2=$mysqli->query($vereador);
         //}
 
@@ -45,7 +50,12 @@ if (isset($_GET['origem']) and !empty($_GET['origem']))
         $num_total = $mysqli->query($_SESSION['sql'])->num_rows;        
 
        // if (isset($_POST['op_re'])){ //se op com remetente selecionada
-            $vereador="SELECT nom_vereador, ind_sexo, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, num_cep, img_foto, tip_foto, tam_foto FROM gab_vereador";
+
+            $vereador="SELECT gab_vereador.nom_vereador, gab_vereador.GAB_CARGO_POLITICO_cod_car_pol cod_car_pol, gab_cargo_politico.nom_car_pol AS nom_car_pol, "
+            ." gab_vereador.nom_endereco, gab_vereador.nom_numero, gab_vereador.nom_complemento, gab_vereador.nom_cidade, gab_vereador.nom_estado, gab_vereador.num_cep "
+            ." FROM gab_vereador"
+            ." LEFT JOIN gab_cargo_politico ON gab_cargo_politico.cod_car_pol = gab_vereador.GAB_CARGO_POLITICO_cod_car_pol ";
+
             $query2=$mysqli->query($vereador);
         //}
     }
@@ -55,7 +65,7 @@ $tip_ep=$_GET['tip_et'];//tipo do tamanho da etiqueta
 
     while($r=$query2->fetch_object())
     {       
-        $nom_vereador="Parlamentar ".$r->nom_vereador;
+        $nom_vereador=$r->nom_car_pol." ".$r->nom_vereador;
         
         if($tip_ep=="T"){
             if (mb_strlen($nom_vereador,"UTF-8")>35){ //se for maior que 55 caracteres  

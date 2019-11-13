@@ -905,7 +905,7 @@
                                                 Folha com <b>20 etiquetas</b> (02 colunas x 10 linhas - 55 caracteres por linha da etiqueta)<br>
                                                 <input type="radio" name="tip_et" id="tip_et" value="T" checked>
                                                 Folha com <b>30 etiquetas</b> (03 colunas x 10 linhas - 35 caracteres por linha da etiqueta)<br>
-                                            <div style="line-height: 50px;"><input type="checkbox" name="op_re" id="op_re" checked > Deseja imprimir <b>Remetente (Parlamentar)</b>?</div>
+                                            <div style="line-height: 50px;"><input type="checkbox" name="op_re" id="op_re" checked > Deseja imprimir <b>Remetente (Agente Político)</b>?</div>
                                             Deseja <b>pular quantas linhas</b> da folha de etiquetas?
                                             <input name="pular" id="pular" type="number" min="0" max="9">
                                             <button type="button" title="Gerar documento para impressão de Etiquetas" onclick="checaPulaLinhaEtiquetas();"><i class="fas fa-print" style="font-size:20px; color:000000;"></i></button>
