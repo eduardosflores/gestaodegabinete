@@ -8,11 +8,11 @@
 <pass>: senha de usuário do banco
 */
 
-if (file_exists('includes/conexao_local.php')){
-    include_once 'includes/conexao_local.php';
+if (file_exists('includes/conexao.local.php')){
+    include_once 'includes/conexao.local.php';
 }
-else if (file_exists('../includes/conexao_local.php')){
-    include_once '../includes/conexao_local.php';
+else if (file_exists('../includes/conexao.local.php')){
+    include_once '../includes/conexao.local.php';
 }
 else{
     define("HOST", "<server>");
