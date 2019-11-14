@@ -20,10 +20,13 @@ CREATE TABLE `gab_cargo_politico` (
   PRIMARY KEY (`cod_car_pol`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+INSERT INTO gab_cargo_politico (nom_car_pol,ind_car_pol) VALUES ('Vereador','A');
+INSERT INTO gab_cargo_politico (nom_car_pol,ind_car_pol) VALUES ('Vereadora','A');
+
 ALTER TABLE gab_vereador ADD nom_orgao varchar(150) DEFAULT NULL;
 
 ALTER TABLE gab_vereador ADD GAB_CARGO_POLITICO_cod_car_pol int(10) unsigned DEFAULT NULL,
   ADD KEY `fk_cod_car_pol` (`GAB_CARGO_POLITICO_cod_car_pol`),
   ADD CONSTRAINT `fk_cod_car_pol` FOREIGN KEY (`GAB_CARGO_POLITICO_cod_car_pol`) REFERENCES `gab_cargo_politico` (`cod_car_pol`);
 
-ALTER TABLE DROP COLUMN ind_sexo;
+ALTER TABLE gab_vereador DROP COLUMN ind_sexo;

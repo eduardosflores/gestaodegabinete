@@ -63,7 +63,7 @@
                             if ($resultado->num_rows){?>
 
                                <div class="col-md-3">
-                                   <select class="meuselect" name="cod_car_pol">
+                                   <select class="meuselect" name="cod_car_pol" required>
                                        <option value="">Selecione</option>
                                        <?php
                                        foreach ($resultado as $linha_set_gab)
@@ -114,7 +114,7 @@
 					<div class="form-group">
                         <label class="col-md-2 control-label" for="cidade">Nome do Órgão:</label>
                         <div class="col-md-4">
-                            <input id="nom_orgao" name="nom_orgao" required type="text" placeholder="" class="form-control input-md"
+                            <input id="nom_orgao" name="nom_orgao" type="text" required placeholder="" class="form-control input-md"
                                    value="<?php if (isset($aux)) {echo escape($linha->nom_orgao);}?>">
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                     </div>
                     <div class="form-group">
                          <div class="col-md-3 text-right">
-                             <input type="submit" class="btn btn-default" <?php if (isset($aux)) { echo "value='Alterar'";} else {echo "value='Cadastrar'";}?>>
+                             <input type="submit" <?php if($cond) { echo "disabled";}?> class="btn btn-default" <?php if (isset($aux)) { echo "value='Alterar'";} else {echo "value='Cadastrar'";}?>>
                              <input type="reset" class="btn btn-default" value="Limpar">
                         </div>
                     </div>

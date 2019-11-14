@@ -36,6 +36,12 @@
     <div id="main" class="container">
     <h1 class="h2">Agenda</h1>
 
+    <div id="main" class="container" style="margin-top: 20px;">
+        <p>Para adicionar a Agenda, siga os passos descritos na <a href="https://support.google.com/calendar/answer/37100?hl=pt-BR">página "Adicionar a agenda do Google de outra pessoa", item "Adicionar usando um link"</a>.</p>
+        <p>Para verificar a sincronização com o Google Agenda, acesse a <a href="https://support.google.com/calendar/answer/6261951?co=GENIE.Platform%3DAndroid&hl=pt-BR">página "Corrigir problemas de sincronização com o aplicativo Google Agenda"</a>.</p>
+        <br>
+    </div>
+
     <div id='calendar'></div>
 
     <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -252,7 +258,7 @@
 
     <?php    }else{ ?>
         <div id="main" class="container" style="margin-top: 20px;">
-            <p>Pra ter acesso a Agenda do sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
+            <p>Para utilizar a Agenda no sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
         </div>
     <?php    
             }

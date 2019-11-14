@@ -213,7 +213,7 @@
                         // Transformando foto em dados (binário)
                         $conteudo = file_get_contents($foto['tmp_name']);
                         
-                        $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, img_foto, tip_foto, tam_foto) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                        $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado, img_foto, tip_foto, tam_foto) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                         $insert->bind_param('sssssssssssi', $nom_vereador, $cod_car_pol, $nom_orgao, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado, $conteudo, $tipo, $tamanho);
 
                         if ($insert->execute()) {
@@ -228,7 +228,7 @@
                     }
                     else { //NÃO foi selecionada uma imagem
                         
-                         $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
+                         $insert = $mysqli->prepare("INSERT INTO gab_vereador (nom_vereador, GAB_CARGO_POLITICO_cod_car_pol, nom_orgao, num_cep, nom_endereco, nom_numero, nom_complemento, nom_cidade, nom_estado) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                          $insert->bind_param('sssssssss', $nom_vereador, $cod_car_pol, $nom_orgao, $num_cep, $nom_endereco, $nom_numero, $nom_complemento, $nom_cidade, $nom_estado);
 
                         if ($insert->execute()) {

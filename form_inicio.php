@@ -269,7 +269,7 @@
             <script>
             (function insertCardBody (){
                 var regmsg =    `<div class="card-body">
-                                    <p>Pra ter acesso a Agenda do sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
+                                    <p>Para utilizar a Agenda no sistema, é necessário <a href="form_cad_agenda.php">cadastrar as Chaves do Google Agenda.</a></p>
                                 </div>`;
                 $('#calendar').append(regmsg);
 
