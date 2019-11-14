@@ -1,49 +1,56 @@
-INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE "GESTÃO DE GABINETE"
+# GESTÃO DE GABINETE
 
 *Desenvolvido pelo Serviço Tecnológico em Informática da Câmara Municipal de Bauru/SP em software livre e aberto.
-*sob Licença Pública Geral GNU
+sob Licença Pública Geral GNU*
 
 Siga o passo-a-passo para instalação e configuração do software "Gestão de Gabinete".
 
 Para  maiores  dúvidas  e/ou  esclarecimentos  sobre  o  sistema,  
 favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da Câmara  Municipal  de Bauru/SP. 
 
-Email:tecnologia@bauru.sp.leg.br
-Telefones:(14) 3235-0651 / (14) 3235-0652
+>Email: tecnologia@bauru.sp.leg.br  
+>Portal Legislativo: https://www.bauru.sp.leg.br
 
+## INSTALAÇÃO E CONFIGURAÇÃO:
 
-- Baixar e instalar XAMPP no computador/servidor em que o software será hospedado
+1. Baixe e instale XAMPP no computador/servidor em que o software será hospedado
 (https://www.apachefriends.org/pt_br/index.html).
 
-Obs: O software "Gestão de Gabinete" está funcionando na versão atual do Xampp para Windows 64 bits 
-(versão 7.3.3 - instalador compactado nesta pasta).
-Pode ser que o software não seja totalmente compatível com versões do Xampp muito antigas.
+    *Obs.: O software **Gestão de Gabinete** está funcionando na versão 7.3.3 do Xampp para Windows 64 bits  
+    (instalador compactado nesta pasta). Podendo apresentar problemas de compatibilidade com versões anteriores.*
 
-- Após instalação, realizar as seguintes alterações nos arquivos de configuração:
+2. Após instalação, realize as seguintes alterações nos arquivos de configuração:
+    - No arquivo `\xampp\php\php.ini`, utilizar:
+    
+        ```
+        file_uploads=On
+        upload_max_filesize=52M
+        post_max_size=55M
+        ```
+    - No arquivo `\xampp\mysql\bin\my.ini`, utilizar:
+    
+        ```
+        max_allowed_packet = 3M
+        innodb_log_file_size = 10M
+        ```
+3. Crie a pasta do sistema (utilizamos `\gabinete\`) dentro do diretório `\xampp\htdocs\` e transfira o código fonte para lá.
 
-*No arquivo \xampp\php\php.ini, utilizar:
-file_uploads=On
-upload_max_filesize=52M
-post_max_size=55M
+4. Acesse a ferramenta phpMyAdmin e execute os scripts conforme sequência abaixo:
+    1. `\scripts\1-script-bd.sql`
+    2. `\scripts\2-script-tables.sql`
+    3. `\scripts\3-script-acesso-admin.sql`
+  
+    *Obs.: **Antes** de executar, **modificar** os scripts conforme comentário escrito em cada um dos arquivos.*
 
-*No arquivo \xampp\mysql\bin\my.ini, utilizar:
-max_allowed_packet = 3M
-innodb_log_file_size = 10M
+5. Defina os campos `HOST`, `DATABASE`, `USER` e `PASSWORD` conforme executado no  
+item 4.i (`\scripts\1-script-bd.sql`) no seguinte arquivo do projeto: `\gabinete\includes\conexao.php`.
 
+6. Realize login no sistema utilizando usuário criado no item 4.iii (user:admin/senha:admin)  
+**IMPORTANTE:** Após logon, altere senha do Administrador pelo sistema.
 
-- Acessar a ferramenta phpMyAdmin e executar os scripts conforme sequência abaixo:
-* \scripts\1-script-bd.sql
-* \scripts\2-script-tables.sql
-* \scripts\3-script-acesso-admin.sql
-Obs: ANTES de executar, MODIFICAR os scripts conforme comentário escrito em cada um dos arquivos.
+*Obs.: este software utiliza webservice gratuito (https://viacep.com.br/) no cadastro de Pessoas
+para consultar Códigos de Endereçamento Postal (CEP) do Brasil.*
 
+*A Agenda utilizada no software exibe eventos do Google Agenda. Para utilizá-la, é necessário cadastrar as Chaves do Google Agenda.*
 
-- Copiar a pasta gabinete e todo seu conteúdo descompactado dentro da pasta \xampp\htdocs 
-(pasta htdocs do local onde o Xampp foi instalado).
-
--Será necessário definir os campos HOST, DATABASE, USER e PASSWORD (conforme executado no passo 2 (2-BD))
-nos seguintes arquivos do projeto:
-\gabinete\includes\conexao.php
-
-OBS: este software utiliza webservice gratuito (https://viacep.com.br/) no cadastro de Pessoas
-para consultar Códigos de Endereçamento Postal (CEP) do Brasil;
+*Mais detalhes do software estão contidos no Manual do Usuário.*
