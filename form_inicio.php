@@ -83,7 +83,7 @@
                 <!-- Bloco Eventos -->
                 <div class="col-md-5">
                     <div class="inicio-card">
-                        <div class="card-header"><a href="form_agenda.php">Agenda<i class="far fa-calendar"></i></a></div>
+                        <div class="card-header"><a href="form_agenda.php">Eventos<i class="far fa-calendar"></i></a></div>
                         <div class="card-body" id='calendar'></div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                     views: {
                         listTodayTomorrow: {
                             type: 'list',
-                            duration: { days: 2 },
+                            duration: { days: 5 },
                             visibleRange: function(currentDate) {
                                 // Generate a new date for manipulating in the next step
                                 var startDate = new Date(currentDate.valueOf());
@@ -171,10 +171,11 @@
 
                                 // Adjust the start & end dates, respectively
                                 startDate.setDate(startDate.getDate() - 1); // One day in the past
-                                endDate.setDate(endDate.getDate() + 2); // Two days into the future
+                                endDate.setDate(endDate.getDate() + 5); // Two days into the future
 
                                 return { start: startDate, end: endDate };
-                            }
+                            },
+                            noEventsMessage: "Não há evento cadastrado nos próximos 5 dias."
                         }
                     },
 

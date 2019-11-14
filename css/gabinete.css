@@ -16,7 +16,7 @@ body {
 .mtab{
     font-size:14px;
 }
-.bottom {position: absolute; padding: 1%; bottom: 0; width: 100%; font-size:12px; background-color: #eee;}
+.bottom {position: absolute; padding: 10px; bottom: 0; width: 100%; font-size:12px; background-color: #eee;}
 .bottom a{color: #28608F; font-weight: bold;}
 
 
@@ -139,7 +139,9 @@ body {
     margin-top: 10px;
 }
 .h2{
+    font-weight: bold;
     font-size: 25px;
+    color: #28608F;
 }
 .divider{
     background-color: #C5C5C5 !important;
@@ -168,7 +170,7 @@ body {
     color: white;
 }
 .inicio-card>.card-header{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     padding: 5px;
 }
@@ -194,7 +196,7 @@ body {
     color: black;
 }
 .inicio-card>.card-body{
-    height: 500px;
+    height: 426px;
     overflow-y: auto;
 }
 .inicio-card>.card-body p{
