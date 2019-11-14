@@ -1,14 +1,25 @@
 <?php
 
-/*servidor: nome do servidor (ex:localhost)
-db: nome do banco de dados
-user: usuário do banco
-senha: senha de usuário do banco*/
+/*
+--Substituir os parâmetros:
+<server>: nome do servidor (ex:localhost)
+<db>: nome do banco de dados
+<user>: usuário do banco
+<pass>: senha de usuário do banco
+*/
 
-define("HOST", "localhost");     // Para o host com o qual você quer se conectar.
-define("USER", "gabuser");    // O nome de usuário para o banco de dados. 
-define("PASSWORD", "12345");    // A senha do banco de dados. 
-define("DATABASE", "gabinete_new");    // O nome do banco de dados. 
+if (file_exists('includes/conexao_local.php')){
+    include_once 'includes/conexao_local.php';
+}
+else if (file_exists('../includes/conexao_local.php')){
+    include_once '../includes/conexao_local.php';
+}
+else{
+    define("HOST", "<server>");
+    define("USER", "<user>");
+    define("PASSWORD", "<pass>");
+    define("DATABASE", "<db>");
+}
 
 $mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
 
