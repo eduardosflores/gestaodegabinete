@@ -71,7 +71,6 @@
             </div>
 
             <div id="main" class="container" style="margin-top: 20px;">
-                <br>
                 <p>Para esclarecer dúvidas na obtenção das chaves do Google Agenda, favor acessar o <a href="form_manual.php">Manual do Usuário.</a></p>
             </div>
 
