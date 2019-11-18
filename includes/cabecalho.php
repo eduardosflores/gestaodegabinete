@@ -62,7 +62,6 @@ Descrição: Cabeçalho do sistema
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <b>CADASTROS&#9662;</b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="form_cad_cargo_politico.php"><b>Cargo Político</b></a></li>
                     <li><a href="form_cad_vereador.php"><b>Agente Político</b></a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="form_cad_agenda.php"><b>Chaves do Google Agenda</b></a></li>
@@ -73,6 +72,8 @@ Descrição: Cabeçalho do sistema
                     <li><a href="form_cad_tipo_documento.php"><b>Tipo de Documento</b></a></li>
                     <li><a href="form_cad_status_documento.php"><b>Situação do Documento</b></a></li>
                     <li><a href="form_cad_unidade.php"><b>Unidade Administrativa (Documento)</b></a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="form_cad_cargo_politico.php"><b>Cargo Político</b></a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="form_cad_usuario.php"><b>Usuários do Sistema</b></a></li>
                 </ul>

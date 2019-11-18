@@ -28,13 +28,13 @@
     ///////////////CABEÇALHO DA TABELA /////////////////////
     $pdf->SetFont("Arial","B",11);
     $pdf->Cell(7,0.8,"Nome",1,0,'C');
+    $pdf->Cell(3.7,0.8,"Doc.Identificação",1,0,'C');
     $pdf->Cell(3.5,0.8,"Doc.Identificação",1,0,'C');
-    $pdf->Cell(3.5,0.8,"Doc.Identificação",1,0,'C');
-    $pdf->Cell(2.5,0.8,"Telefone",1,0,'C');
-    $pdf->Cell(2.6,0.8,"Celular",1,1,'C');
+    $pdf->Cell(2.4,0.8,"Telefone",1,0,'C');
+    $pdf->Cell(2.5,0.8,"Celular",1,1,'C');
     ////////////////DADOS DA TABELA ///////////////////////
     $pdf->SetFont("Arial","",8);
-    $pdf->SetWidths(array(7,3.5,3.5,2.5,2.6));//CADA VALOR DESTE ARRAY SERÁ A LARGURA DE CADA COLUNA
+    $pdf->SetWidths(array(7,3.7,3.5,2.4,2.5));//CADA VALOR DESTE ARRAY SERÁ A LARGURA DE CADA COLUNA
     
     foreach($records as $r){
         if($r->nom_apelido!=NULL){$nome=$r->nom_nome." \"".$r->nom_apelido."\"";}else {$nome=$r->nom_nome;};

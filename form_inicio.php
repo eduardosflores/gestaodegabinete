@@ -93,33 +93,89 @@
                     <div class="inicio-card">
                         <div class="card-header"><a href="form_pesquisar_aniversario.php">Aniversários<i class="fas fa-birthday-cake"></i></a></div>
                         <div class="card-body">
-                            <div class="card-sub-header"><b>hoje<?php echo " (".date('d/m/y').")" ?></b></div>
                                 <?php
-                                if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE())")){
-                                    if ($resultado->num_rows){
-                                        while($linha=$resultado->fetch_object()){
-                                            if ($linha->nom_apelido!=NULL)
-                                                echo "<p><b>".$linha->nom_nome."</b> \"". $linha->nom_apelido."\""."</p>";
-                                            else
-                                                echo "<p><b>".$linha->nom_nome."</b></p>";
+                                if ($resultado=$mysqli->query(
+                                    "SELECT dat_nascimento FROM gab_pessoa WHERE (MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE())) OR"
+                                    ."(DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+1 day")) ."') OR"
+                                    ."(DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+2 day")) ."') OR"
+                                    ."(DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+3 day")) ."') OR"
+                                    ."(DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+4 day")) ."')")){
+                                    if (!$resultado->num_rows) //não trouxe nenhuma linha do banco de dados
+                                        echo "<p>Não há aniversariante cadastrado nos próximos 5 dias.</p>";
+                                    else {
+
+                                        if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE())")){
+                                            if ($resultado->num_rows){
+                                                echo "<div class='card-sub-header'><b>". date('d/m/y') ."</b></div>";
+                                                while($linha=$resultado->fetch_object()){
+                                                    if ($linha->nom_apelido!=NULL)
+                                                        echo "<p>".$linha->nom_nome." \"". $linha->nom_apelido."\""."</p>";
+                                                    else
+                                                        echo "<p>".$linha->nom_nome."</p>";
+                                                }
+                                            }
                                         }
-                                    }else{
-                                        echo "<p>Não há aniversariante cadastrado nesta data.</p>";
-                                    }
-                                }
-                                ?>
-                            <div class="card-sub-header"><b>amanhã<?php echo " (". date('d/m/Y', strtotime("+1 day")).")" ?></b></div>
-                                <?php
-                                if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE ((MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE()+1))  OR   (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=1 OR MONTH(CURDATE())=3 OR MONTH(CURDATE())=5 OR MONTH(CURDATE())=7 OR MONTH(CURDATE())=8 OR MONTH(CURDATE())=10 OR MONTH(CURDATE())=12) AND (DAY(CURDATE()=31))) OR (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=4 OR MONTH(CURDATE())=6 OR MONTH(CURDATE())=9 OR MONTH(CURDATE())=11) AND (DAY(CURDATE()=30))) OR(MONTH(dat_nascimento)=3 AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=2)AND ((DAY(CURDATE()=28 AND YEAR(CURDATE()%4!=0)) OR (DAY(CURDATE()=29) AND YEAR(CURDATE()%4=0))))) OR(MONTH(dat_nascimento)=1 AND DAY(dat_nascimento)=1 AND MONTH(CURDATE())=12 AND DAY(CURDATE())=31)) ORDER BY dat_nascimento")){
-                                    if ($resultado->num_rows){
-                                        while($linha=$resultado->fetch_object()){
-                                            if ($linha->nom_apelido!=NULL)
-                                                echo "<p><b>".$linha->nom_nome."</b> \"". $linha->nom_apelido."\""."</p>";
-                                            else
-                                                echo "<p><b>".$linha->nom_nome."</b></p>";
+                                        ?>
+        
+                                        <?php
+                                        /*if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE ((MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE()+1))  OR   (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=1 OR MONTH(CURDATE())=3 OR MONTH(CURDATE())=5 OR MONTH(CURDATE())=7 OR MONTH(CURDATE())=8 OR MONTH(CURDATE())=10 OR MONTH(CURDATE())=12) AND (DAY(CURDATE()=31))) OR (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=4 OR MONTH(CURDATE())=6 OR MONTH(CURDATE())=9 OR MONTH(CURDATE())=11) AND (DAY(CURDATE()=30))) OR(MONTH(dat_nascimento)=3 AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=2)AND ((DAY(CURDATE()=28 AND YEAR(CURDATE()%4!=0)) OR (DAY(CURDATE()=29) AND YEAR(CURDATE()%4=0))))) OR(MONTH(dat_nascimento)=1 AND DAY(dat_nascimento)=1 AND MONTH(CURDATE())=12 AND DAY(CURDATE())=31)) ORDER BY dat_nascimento")){*/
+                                        if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+1 day")) ."' ORDER BY dat_nascimento")){
+                                            if ($resultado->num_rows){
+                                                echo "<div class='card-sub-header'><b>". date('d/m/Y', strtotime("+1 day")) ."</b></div>";
+                                                while($linha=$resultado->fetch_object()){
+                                                    if ($linha->nom_apelido!=NULL)
+                                                        echo "<p>".$linha->nom_nome." \"". $linha->nom_apelido."\""."</p>";
+                                                    else
+                                                        echo "<p>".$linha->nom_nome."</p>";
+                                                }
+                                            }
                                         }
-                                    }else{
-                                        echo "<p>Não há aniversariante cadastrado nesta data.</p>";
+                                        ?>
+        
+                                        <?php
+                                        /*if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE ((MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE()+1))  OR   (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=1 OR MONTH(CURDATE())=3 OR MONTH(CURDATE())=5 OR MONTH(CURDATE())=7 OR MONTH(CURDATE())=8 OR MONTH(CURDATE())=10 OR MONTH(CURDATE())=12) AND (DAY(CURDATE()=31))) OR (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=4 OR MONTH(CURDATE())=6 OR MONTH(CURDATE())=9 OR MONTH(CURDATE())=11) AND (DAY(CURDATE()=30))) OR(MONTH(dat_nascimento)=3 AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=2)AND ((DAY(CURDATE()=28 AND YEAR(CURDATE()%4!=0)) OR (DAY(CURDATE()=29) AND YEAR(CURDATE()%4=0))))) OR(MONTH(dat_nascimento)=1 AND DAY(dat_nascimento)=1 AND MONTH(CURDATE())=12 AND DAY(CURDATE())=31)) ORDER BY dat_nascimento")){*/
+                                        if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+2 day")) ."' ORDER BY dat_nascimento")){
+                                            if ($resultado->num_rows){
+                                                echo "<div class='card-sub-header'><b>". date('d/m/Y', strtotime("+2 day")) ."</b></div>";
+                                                while($linha=$resultado->fetch_object()){
+                                                    if ($linha->nom_apelido!=NULL)
+                                                        echo "<p>".$linha->nom_nome." \"". $linha->nom_apelido."\""."</p>";
+                                                    else
+                                                        echo "<p>".$linha->nom_nome."</p>";
+                                                }
+                                            }
+                                        }
+                                        ?>
+        
+                                        <?php
+                                        /*if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE ((MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE()+1))  OR   (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=1 OR MONTH(CURDATE())=3 OR MONTH(CURDATE())=5 OR MONTH(CURDATE())=7 OR MONTH(CURDATE())=8 OR MONTH(CURDATE())=10 OR MONTH(CURDATE())=12) AND (DAY(CURDATE()=31))) OR (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=4 OR MONTH(CURDATE())=6 OR MONTH(CURDATE())=9 OR MONTH(CURDATE())=11) AND (DAY(CURDATE()=30))) OR(MONTH(dat_nascimento)=3 AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=2)AND ((DAY(CURDATE()=28 AND YEAR(CURDATE()%4!=0)) OR (DAY(CURDATE()=29) AND YEAR(CURDATE()%4=0))))) OR(MONTH(dat_nascimento)=1 AND DAY(dat_nascimento)=1 AND MONTH(CURDATE())=12 AND DAY(CURDATE())=31)) ORDER BY dat_nascimento")){*/
+                                        if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+3 day")) ."' ORDER BY dat_nascimento")){
+                                            if ($resultado->num_rows){
+                                                echo "<div class='card-sub-header'><b>". date('d/m/Y', strtotime("+3 day")) ."</b></div>";
+                                                while($linha=$resultado->fetch_object()){
+                                                    if ($linha->nom_apelido!=NULL)
+                                                        echo "<p>".$linha->nom_nome." \"". $linha->nom_apelido."\""."</p>";
+                                                    else
+                                                        echo "<p>".$linha->nom_nome."</p>";
+                                                }
+                                            }
+                                        }
+                                        ?>
+        
+                                        <?php
+                                        /*if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE ((MONTH(dat_nascimento)=MONTH(CURDATE()) AND DAY(dat_nascimento)=DAY(CURDATE()+1))  OR   (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=1 OR MONTH(CURDATE())=3 OR MONTH(CURDATE())=5 OR MONTH(CURDATE())=7 OR MONTH(CURDATE())=8 OR MONTH(CURDATE())=10 OR MONTH(CURDATE())=12) AND (DAY(CURDATE()=31))) OR (MONTH(dat_nascimento)=MONTH(CURDATE()+1) AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=4 OR MONTH(CURDATE())=6 OR MONTH(CURDATE())=9 OR MONTH(CURDATE())=11) AND (DAY(CURDATE()=30))) OR(MONTH(dat_nascimento)=3 AND DAY(dat_nascimento)=1 AND (MONTH(CURDATE())=2)AND ((DAY(CURDATE()=28 AND YEAR(CURDATE()%4!=0)) OR (DAY(CURDATE()=29) AND YEAR(CURDATE()%4=0))))) OR(MONTH(dat_nascimento)=1 AND DAY(dat_nascimento)=1 AND MONTH(CURDATE())=12 AND DAY(CURDATE())=31)) ORDER BY dat_nascimento")){*/
+                                        if ($resultado=$mysqli->query("SELECT nom_nome , nom_apelido,dat_nascimento FROM gab_pessoa WHERE DATE_FORMAT(dat_nascimento, '%m-%d')='" . date('m-d', strtotime("+4 day")) ."' ORDER BY dat_nascimento")){
+                                            if ($resultado->num_rows){
+                                                echo "<div class='card-sub-header'><b>". date('d/m/Y', strtotime("+4 day")) ."</b></div>";
+                                                while($linha=$resultado->fetch_object()){
+                                                    if ($linha->nom_apelido!=NULL)
+                                                        echo "<p>".$linha->nom_nome." \"". $linha->nom_apelido."\""."</p>";
+                                                    else
+                                                        echo "<p>".$linha->nom_nome."</p>";
+                                                }
+                                            }
+                                        }
+        
                                     }
                                 }
                                 ?>

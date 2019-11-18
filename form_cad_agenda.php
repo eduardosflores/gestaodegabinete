@@ -48,7 +48,7 @@
             ?>
 
             <div class="form-group">
-                <label class="col-md-2 control-label" for="googleCalendarApiKey" autocomplete="on">Google Calendar API Key:</label>
+                <label class="col-md-2 control-label" for="googleCalendarApiKey" autocomplete="on">Google Calendar API:</label>
                 <div class="col-md-5">
                     <input id="googleCalendarApiKey" name="api_key" type="text" required placeholder="" class="form-control input-md"
                             value="<?php if (isset($aux)) {echo escape($linha->api_key);}?>">
