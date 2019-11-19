@@ -469,9 +469,9 @@
                                     <?php $cod_atendimento=$r->cod_atendimento;?>
                                     <?php if (isset($_GET['mod'])){?>
                                     
-                                        <td  width='15%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>"><?php echo converteDataBR($r->data);?></a></td>
-                                        <td  width='30%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>"><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome);?></a></td>
-                                        <td  width='20%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>">
+                                        <td  width='5%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>"><?php echo converteDataBR($r->data);?></a></td>
+                                        <td  width='25%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>"><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome);?></a></td>
+                                        <td  width='25%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>">
                                             <?php if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg); }
                                                   if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj); }
                                                   if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj); }
@@ -484,9 +484,9 @@
                                         <td  width='15%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?=$cod_atendimento;?>"><?php echo $r->status;?></a></td>
                                     <?php }
                                     else{?>
-                                        <td  width='15%'><?php echo converteDataBR($r->data);?></td> 
+                                        <td  width='5%'><?php echo converteDataBR($r->data);?></td> 
                                         <td  width='25%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
-                                        <td  width='15%'>
+                                        <td  width='25%'>
                                             <?php if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg); }
                                                   if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj); }
                                                   if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj); }
