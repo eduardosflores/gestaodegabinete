@@ -121,6 +121,9 @@ body {
 .form-group {
     margin-bottom: 8px;
 }
+.meuselect{
+    width: 100%;
+}
 
 /* Responsive table overflow */
 .table-of{

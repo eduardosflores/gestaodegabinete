@@ -225,7 +225,7 @@
                             <div class="col-md-5">
                                 <input type="file" name="foto"/>
                                 <span>Tamanho máximo:2 MB</span><br>
-                                <span>Para uma melhor qualidade de imagem, por favor selecione uma foto de 300x500 pixels.</span>
+                                <span>Dimensões recomendadas 300x500 pixels.</span>
                             </div>
                     </div>
                     <div class="form-group">

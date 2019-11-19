@@ -47,10 +47,8 @@
             });
         </script>
     <body>
-        <?php if (login_check($mysqli) == true) 
-            {
-                     include 'includes/cabecalho.php';
-               
+        <?php if (login_check($mysqli) == true){
+                include 'includes/cabecalho.php';
         ?>
             <div class="container" id="main">
 
@@ -107,7 +105,7 @@
                                 $cond = false;
                             }
                             else
-                            {?>                          
+                            {?>
                                 <div class="col-md-3">
                                     <select class="form-control" name="nom_estado" disabled="true">
                                        <option value="">Selecione</option>
@@ -629,16 +627,16 @@
                                         }
 										?>
 										
-										<td  width='10%'><?php echo escape($num_ddd_tel)." ".escape($num_tel);?><br><?php echo escape($num_ddd_cel)." ".escape($num_cel);?></td>
+										<td  width='12%'><?php echo escape($num_ddd_tel)." ".escape($num_tel);?><br><?php echo escape($num_ddd_cel)." ".escape($num_cel);?></td>
 										
                                         <td  width='15%'><?php echo $r->nom_bairro;
 															   if ($r->nom_cidade!=NULL && $r->nom_estado!=NULL) echo "<br>".$r->nom_cidade."/".$r->nom_estado;
 															   else if ($r->nom_cidade!=NULL) echo "<br>".$r->nom_cidade;
 															   else if ($r->nom_estado!=NULL) echo "<br>".$r->nom_estado;?>
 										</td>
-                                        <td  width='10%'><?php echo $r->tipo;?></td>
-                                        <td  width='10%'><?php echo $r->status;?></td>
-										<td  width='25%'><?php if ($r->txt_detalhes!=NULL){ 
+                                        <td  width='8%'><?php echo $r->tipo;?></td>
+                                        <td  width='8%'><?php echo $r->status;?></td>
+										<td  width='27%'><?php if ($r->txt_detalhes!=NULL){ 
 																if (strlen($r->txt_detalhes)>150) $str_continua="..."; else $str_continua="";
 																echo escape(substr($r->txt_detalhes, 0, 150)).$str_continua;
 																}?>

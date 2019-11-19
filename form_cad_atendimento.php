@@ -485,12 +485,12 @@
                                     <?php }
                                     else{?>
                                         <td  width='5%'><?php echo converteDataBR($r->data);?></td> 
-                                        <td  width='25%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
-                                        <td  width='25%'>
-                                            <?php if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg); }
-                                                  if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj); }
-                                                  if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj); }
-                                                  if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie); }
+                                        <td  width='30%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
+                                        <td  width='20%'>
+                                            <?php if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<p><b> CPF:</b>".escape($r->cod_cpf_cnpj)."</p>";}
+                                                if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<p><b> RG:</b>".escape($r->cod_rg)."</p>";}
+                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<p><b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."</p>";}
+                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie)."</p>";}
                                             ?>
                                         </td>
                                         <td  width='15%'><?php echo $r->tipo;?></td>
