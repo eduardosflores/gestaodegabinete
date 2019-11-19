@@ -356,7 +356,7 @@
 
                             </div>
                             
-                            <button type="button" class="btn btn-success" onclick="modal('form_cad_atendimento.php?mod=1','modal',1000,500)">Pesquisar Atendimento</button>
+                            <button type="button" class="btn btn-primary" onclick="modal('form_cad_atendimento.php?mod=1','modal',1000,500)">Pesquisar Atendimento</button>
                             
                             <input type="hidden" name="cod_atendimento" id="cod_atendimento">
                            

@@ -30,10 +30,14 @@ body {
 .navbar-default{
     background-color: #337AB7;
 }
-.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a{
+    color: white !important;
+}
+
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover{
     color: white !important;
+    background-color: #28608F;
 }
 
 
@@ -41,11 +45,10 @@ body {
 .navbar-default .navbar-nav>.open>a, 
 .navbar-default .navbar-nav>.open>a:focus, 
 .navbar-default .navbar-nav>.open>a:hover {
-    color: #337AB7;
-    background-color: #337AB7;
+    background-color: #28608F !important;
 }
 .navbar-nav>li>.dropdown-menu {
-    background-color: #eee !important;
+    background-color: #eee;
 }
 .navbar-nav>li>.dropdown-menu>li>a{
     color: black !important;
