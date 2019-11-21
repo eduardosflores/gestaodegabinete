@@ -40,8 +40,7 @@ favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da C�
   
     *Obs.: **Antes** de executar, **modificar** os scripts conforme comentário escrito em cada um dos arquivos.*
 
-5. Defina os campos `HOST`, `DATABASE`, `USER` e `PASSWORD` conforme executado no  
-item 4.i (`\scripts\1-script-bd.sql`) no seguinte arquivo do projeto: `\gabinete\includes\conexao.php`.
+5. Modifique os campos `HOST`, `DATABASE`, `USER` e `PASSWORD` no seguinte arquivo do projeto: `\gabinete\includes\conexao.php`, conforme definido no item 4.i (`\scripts\1-script-bd.sql`).
 
 6. Realize login no sistema utilizando usuário criado no item 4.iii (user:admin/senha:admin)  
 **IMPORTANTE:** Após logon, altere senha do Administrador pelo sistema.
