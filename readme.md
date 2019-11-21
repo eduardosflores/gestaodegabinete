@@ -1,7 +1,6 @@
 # GESTÃO DE GABINETE
 
-*Desenvolvido pelo Serviço Tecnológico em Informática da Câmara Municipal de Bauru/SP em software livre e aberto.
-sob Licença Pública Geral GNU*
+*Desenvolvido pelo Serviço Tecnológico em Informática da Câmara Municipal de Bauru/SP em software livre e aberto, sob Licença Pública Geral GNU*
 
 Siga o passo-a-passo para instalação e configuração do software "Gestão de Gabinete".
 
