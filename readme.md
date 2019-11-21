@@ -51,4 +51,4 @@ favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da C�
 
 *-A Agenda utilizada no software exibe eventos do **Google Agenda**. Para utilizá-la, é necessário cadastrar as Chaves do Google Agenda.*
 
-*-Mais detalhes do software estão contidos no **Manual do Usuário**.*
+*Para mais detalhes, consulte o **Manual do Usuário**.*
