@@ -42,7 +42,7 @@ favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da C�
 
 5. Modifique os campos `HOST`, `DATABASE`, `USER` e `PASSWORD` no seguinte arquivo do projeto: `\gabinete\includes\conexao.php`, conforme definido no item 4.i (`\scripts\1-script-bd.sql`).
 
-6. Realize login no sistema utilizando usuário criado no item 4.iii (*user:admin/senha:admin*)  
+6. Realize login no sistema utilizando usuário criado no item 4.iii (*user:admin / senha:admin*)  
 **IMPORTANTE:** Após logon, altere senha do Administrador pelo sistema.
 
 *Obs.: este software utiliza webservice gratuito (https://viacep.com.br/) no cadastro de Pessoas
