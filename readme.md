@@ -45,10 +45,10 @@ favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da C�
 6. Realize login no sistema utilizando usuário criado no item 4.iii (*user:admin / senha:admin*)  
 **IMPORTANTE:** Após logon, altere senha do Administrador pelo sistema.
 
-**Observações**
+**Observações:**
 
-*Este software utiliza **webservice gratuito (https://viacep.com.br/)** no cadastro de Pessoas para consultar Códigos de Endereçamento Postal (CEP) do Brasil.*
+*-Este software utiliza **webservice gratuito (https://viacep.com.br/)** no cadastro de Pessoas para consultar Códigos de Endereçamento Postal (CEP) do Brasil.*
 
-*A Agenda utilizada no software exibe eventos do **Google Agenda**. Para utilizá-la, é necessário cadastrar as Chaves do Google Agenda.*
+*-A Agenda utilizada no software exibe eventos do **Google Agenda**. Para utilizá-la, é necessário cadastrar as Chaves do Google Agenda.*
 
-*Mais detalhes do software estão contidos no **Manual do Usuário**.*
+*-Mais detalhes do software estão contidos no **Manual do Usuário**.*
