@@ -52,7 +52,7 @@
                     ?>
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Situação Atendimento:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input name="nom_status" type="text" placeholder="" class="form-control input-md" required
                                 value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_status'])) {echo escape($linha->nom_status);}?>">
                         </div>
@@ -63,7 +63,7 @@
                     ?>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="radios">Status:</label>
-                            <div class="col-md-3">
+                            <div class="col-md-8">
                                 <div class="radio">
                                     <label for="ativo">
                                         <input type="radio" name="ind_status" id="ativo" value="A" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_status'])) {echo $linha->ind_status == 'A' ? "checked" : null;}?>>

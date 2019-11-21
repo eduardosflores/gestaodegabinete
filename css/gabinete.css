@@ -42,29 +42,33 @@ body {
 
 
 /* Dropdown */
-.navbar-default .navbar-nav>.open>a, 
-.navbar-default .navbar-nav>.open>a:focus, 
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
 .navbar-default .navbar-nav>.open>a:hover {
-    background-color: #28608F !important;
+    color: #28608F;
+    background-color: #28608F;
+}
+
+.navbar-default .navbar-collapse{
+    background-color: #337AB7;
 }
 .navbar-nav>li>.dropdown-menu {
-    background-color: #eee;
+    background-color: #eee !important;
 }
 .navbar-nav>li>.dropdown-menu>li>a{
     color: black !important;
 }
-.navbar-nav>li>.dropdown-menu>li>a:hover,
-.navbar-nav>li>.dropdown-menu>li>a:focus{
-    color: white;
-    background-color: #93CAF0;
+.navbar-nav>li>.dropdown-menu>li:hover,
+.navbar-nav>li>.dropdown-menu>li:focus{
+    background-color: #93CAF0!important;
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: #255885;
 }
 .navbar-default .navbar-toggle {
-    border-color: #ccc;
-    color: #A7D3FA;
+    border-color: white;
+    color: white;
 }
 
 /* End theme colors
