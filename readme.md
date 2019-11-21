@@ -15,8 +15,7 @@ favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da C�
 1. Baixe e instale XAMPP no computador/servidor em que o software será hospedado
 (https://www.apachefriends.org/pt_br/index.html).
 
-    *Obs.: O software **Gestão de Gabinete** está funcionando na versão 7.3.3 do Xampp para Windows 64 bits  
-    (instalador compactado nesta pasta). Podendo apresentar problemas de compatibilidade com versões anteriores.*
+    *Obs.: O software **Gestão de Gabinete** está funcionando na versão 7.3.3 do Xampp para Windows 64 bits. Pode apresentar problemas de compatibilidade com versões muito antigas.*
 
 2. Após instalação, realize as seguintes alterações nos arquivos de configuração:
     - No arquivo `\xampp\php\php.ini`, utilizar:
