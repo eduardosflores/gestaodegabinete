@@ -1,14 +1,11 @@
 # GESTÃO DE GABINETE
 
-*Desenvolvido pelo Serviço Tecnológico em Informática da Câmara Municipal de Bauru/SP em software livre e aberto, sob Licença Pública Geral GNU*
+*Desenvolvido pelo **Serviço Tecnológico em Informática da Câmara Municipal de Bauru/SP em software livre e aberto**, sob Licença Pública Geral GNU*
 
-Siga o passo-a-passo para instalação e configuração do software "Gestão de Gabinete".
+*Para conhecer o software, acesse a **versão demonstrativa**: https://intranet.bauru.sp.leg.br/gabdemo/.* 
 
-Para  maiores  dúvidas  e/ou  esclarecimentos  sobre  o  sistema,  
-favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da Câmara  Municipal  de Bauru/SP. 
+Siga o passo-a-passo abaixo para instalação e configuração do software "Gestão de Gabinete".
 
->Email: tecnologia@bauru.sp.leg.br  
->Portal Legislativo: https://www.bauru.sp.leg.br
 
 ## INSTALAÇÃO E CONFIGURAÇÃO:
 
@@ -45,10 +42,15 @@ favor  entrar  em contato  com  o Serviço  Tecnológico  em  Informática da C�
 6. Realize login no sistema utilizando usuário criado no item 4.iii (*user:admin / senha:admin*)  
 **IMPORTANTE:** Após logon, altere senha do Administrador pelo sistema.
 
-**Observações:**
+### OBSERVAÇÕES:
 
 *-Este software utiliza **webservice gratuito (https://viacep.com.br/)** no cadastro de Pessoas para consultar Códigos de Endereçamento Postal (CEP) do Brasil.*
 
 *-A Agenda utilizada no software exibe eventos do **Google Agenda**. Para utilizá-la, é necessário cadastrar as Chaves do Google Agenda.*
 
-*Para mais detalhes, consulte o **Manual do Usuário**.*
+*Para mais detalhes sobre as funcionalidades do software, consulte o **Manual do Usuário**.*
+
+Para  maiores  dúvidas  e/ou  esclarecimentos, entre  em contato  com  o Serviço  Tecnológico  em  Informática da Câmara  Municipal  de Bauru/SP. 
+
+>Email: tecnologia@bauru.sp.leg.br  
+>Portal Legislativo: https://www.bauru.sp.leg.br
