@@ -50,6 +50,7 @@ body {
 }
 
 .navbar-default .navbar-collapse{
+    border: none;
     background-color: #337AB7;
 }
 .navbar-nav>li>.dropdown-menu {
@@ -70,7 +71,9 @@ body {
     border-color: white;
     color: white;
 }
-
+.icon-bar{
+    background-color: white !important;
+}
 /* End theme colors
 -------------------------------------------------- */
 
@@ -107,12 +110,29 @@ body {
     line-height: 30px;
     min-height: 0px;
 }
+.navbar-toggle{
+    height: 32px;
+    line-height: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
 .nav2 .navbar-nav>li>a{
     padding-top: 10px !important;
     padding-bottom: 10px !important;
 }
 .navbar{
     border: none;
+}
+@media (max-width: 991px) and (min-width: 768px){
+    .nav2 .navbar-nav>li>a{
+        font-size: 12px;
+    }
+    .dropdown-right{
+        right: 0;
+        left: auto;
+    }
 }
 
 
