@@ -509,7 +509,7 @@
                         if ($documento==1){
                         ?>
                         <div class="form-group">
-                            <div class = "panel panel-success col-md-8">
+                            <div class = "panel panel-primary col-md-8">
                                 <div class = "panel-heading">
                                    <h3 class = "panel-title">Documento</h3>
                                 </div>
@@ -556,7 +556,7 @@
                         ?>
                             
                             <div class="form-group">
-                                <div class = "panel panel-success col-md-8">
+                                <div class = "panel panel-primary col-md-8">
                                     <div class = "panel-heading">
                                        <h3 class = "panel-title">Documento</h3>
                                     </div>
@@ -660,7 +660,7 @@
                         if ($doc_resposta==1){
                         ?>
                             <div class="form-group" id="bloco_resposta_alt">
-                                <div class = "panel panel-success col-md-8">
+                                <div class = "panel panel-primary col-md-8">
                                     <div class = "panel-heading">
                                        <h3 class = "panel-title">Resposta</h3>
                                     </div>
@@ -723,7 +723,7 @@
                         {
                         ?>
                             <div class="form-group" id="bloco_resposta_alt" style="<?php if ($dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                                <div class = "panel panel-success col-md-8">
+                                <div class = "panel panel-primary col-md-8">
                                     <div class = "panel-heading">
                                        <h3 class = "panel-title">Resposta</h3>
                                     </div>
