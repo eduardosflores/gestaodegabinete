@@ -804,7 +804,6 @@
                                 <th class="text-center"><input type="checkbox"  onchange="checkAll(this)" name="chk[]"></th>
                                 <th>Nome</th>
                                 <th>Doc.Identificação</th>
-                                <th>Doc.Identificação</th>
                                 <th>Email</th>
                                 <th>Telefone/<br>Celular</th>
                                 <th>Alterar</th>
@@ -818,20 +817,29 @@
                                     <form name="form_etiquetas" target="_blank" action="form_cad_pessoa_etiqueta_pdf.php" type="post">
                                     <input name="cod_pessoa[]" type="checkbox" value="<?php echo ($r->cod_pessoa); ?>">
                                     <input type="hidden" name="origem" value="form_cad_pessoa"></td>
-                                    <td  width='20%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
-                                    <td  width='18%'>
+                                    <td  width='30%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
+                                    <td  width='20%'>
                                         <?php
-                                              if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo escape("CPF: ".$r->cod_cpf_cnpj); }
-                                              if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo escape("CNPJ: ".$r->cod_cpf_cnpj); }
+											if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj)."<br>"; }
+											if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg)."<br>"; }
+											if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."<br>"; }
+											if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie)."<br>"; }
+										?>
+                                    </td>
+									
+									<!---<td  width='18%'>
+                                        <?php
+                                              //if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo escape("CPF: ".$r->cod_cpf_cnpj); }
+                                              //if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo escape("CNPJ: ".$r->cod_cpf_cnpj); }
                                         ?>
                                     </td>
                                     <td  width='12%'>
                                         <?php
-                                            $cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$r->cod_rg);
-                                            if($r->ind_pessoa == "PF" && !empty($cod_rg)){ echo escape("RG: ".$cod_rg); }
-                                            if($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo escape("IE: ".$r->cod_ie); }
+                                            //$cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$r->cod_rg);
+                                            //if($r->ind_pessoa == "PF" && !empty($cod_rg)){ echo escape("RG: ".$cod_rg); }
+                                            //if($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo escape("IE: ".$r->cod_ie); }
                                         ?>
-                                    </td>
+                                    </td>--->
                                     <?php
                                         //acrescenta () no ddd do telefone
                                         $num_ddd_tel = $r->num_ddd_tel;
