@@ -30,38 +30,63 @@
     //$pdf->Cell(0,0,"",1);
     $pdf->Ln(0.5);
 
-    $pdf->SetFont("Arial","",10);        
-    $pdf->Cell(0,0.3,"Data: ".converteDataBR($r->data),0,1,'l');
+    $pdf->SetFont("Arial","B",10);
+    $pdf->Cell(4.5,0.3,"Data: ",0, 0,'l');
+    $pdf->SetFont("Arial", "", 10);
+    $pdf->Cell(0, 0.3, converteDataBR($r->data), 0, 1, 'l');
+
     if ($r->nom_apelido!=NULL) {
         $nome=$r->nom_nome." \"".$r->nom_apelido."\""; 
     }
     else{
         $nome=$r->nom_nome;
     }
-    $pdf->Cell(0,0.4,"Nome: ".$nome,0,1,'l');
+    $pdf->SetFont("Arial","B",10);
+    $pdf->Cell(4.5, 0.4,"Nome: ", 0, 0, 'l');
+    $pdf->SetFont("Arial","",10);
+    $pdf->Cell(0, 0.4, $nome, 0, 1, 'l');
     
-    if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ 
-        $pdf->Cell(0,0.4,"CPF: ".$r->cod_cpf_cnpj,0,1,'l');
+    if (!empty($r->cod_cpf_cnpj)){
+        $pdf->SetFont("Arial","B",10);
+        if($r->ind_pessoa == "PF"){
+            $pdf->Cell(4.5,0.4,"CPF: ",0,0,'l');
+        }else{
+            $pdf->Cell(4.5,0.4,"CNPJ: ",0,0,'l');
+        }
+        $pdf->SetFont("Arial","",10);
+        $pdf->Cell(0, 0.4, $r->cod_cpf_cnpj, 0, 1, 'l');
     }
-    if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ 
-        $pdf->Cell(0,0.4,"RG: ".$r->cod_rg,0,1,'l');
+
+    if(!empty($r->cod_rg)){
+        $pdf->SetFont("Arial","B",10);
+        $pdf->Cell(4.5, 0.4, "RG: ", 0, 0, 'l');
+        $pdf->SetFont("Arial","",10);
+        $pdf->Cell(0, 0.4, $r->cod_rg, 0, 1, 'l');
     }
-    if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ 
-        $pdf->Cell(0,0.4,"CNPJ: ".$r->cod_cpf_cnpj,0,1,'l');
+    if(!empty($r->cod_ie)){
+        $pdf->SetFont("Arial","B",10);
+        $pdf->Cell(4.5, 0.4, "IE: ", 0, 0,'l');
+        $pdf->SetFont("Arial","",10);
+        $pdf->Cell(0, 0.4, $r->cod_ie, 0, 1, 'l');
     }
-    if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ 
-        $pdf->Cell(0,0.4,"IE: ".$r->cod_ie,0,1,'l');
-    }
-   
-    
-    
+
     $detalhes = $r->detalhes; 
     $detalhes = preg_replace('/["]/','',$detalhes);
 
-    $pdf->Cell(0,0.4,"Tipo de Atendimento: ".$r->solicitacao,0,1,'l');
-    $pdf->Cell(0,0.4,"Situação do Atendimento: ".$r->nom_status,0,1,'l');
+    $pdf->SetFont("Arial","B",10);
+    $pdf->Cell(4.5,0.4,"Tipo de Atendimento: ",0,0,'l');
+    $pdf->SetFont("Arial","",10);
+    $pdf->Cell(0,0.4,$r->solicitacao,0,1,'l');
+
+    $pdf->SetFont("Arial","B",10);
+    $pdf->Cell(4.5,0.4,"Situação do Atendimento: ",0,0,'l');
+    $pdf->SetFont("Arial","",10);
+    $pdf->Cell(0,0.4,$r->nom_status,0,1,'l');
+
     $pdf->ln(0.5);
+    $pdf->SetFont("Arial","B",10);
     $pdf->Cell(0,0.4,"Detalhes: ",0,1,'l');
+    $pdf->SetFont("Arial","",10);
     $pdf->MultiCell(19,0.4,$detalhes,0,'J');
 
     $pdf->Output("gestao_gabinete_protocolo_atendimento.pdf","I");
