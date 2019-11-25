@@ -27,24 +27,22 @@
     $pdf->Ln(0.5);
     ///////////////CABEÇALHO DA TABELA /////////////////////
     $pdf->SetFont("Arial","B",11);
-    $pdf->Cell(7,0.8,"Nome",1,0,'C');
-    $pdf->Cell(3.7,0.8,"Doc.Identificação",1,0,'C');
-    $pdf->Cell(3.5,0.8,"Doc.Identificação",1,0,'C');
-    $pdf->Cell(2.4,0.8,"Telefone",1,0,'C');
-    $pdf->Cell(2.5,0.8,"Celular",1,1,'C');
+    $pdf->Cell(9,0.8,"Nome",1,0,'C');
+    $pdf->Cell(4.1,0.8,"Doc.Identificação",1,0,'C');
+    $pdf->Cell(3,0.8,"Telefone",1,0,'C');
+    $pdf->Cell(3,0.8,"Celular",1,1,'C');
     ////////////////DADOS DA TABELA ///////////////////////
     $pdf->SetFont("Arial","",8);
-    $pdf->SetWidths(array(7,3.7,3.5,2.4,2.5));//CADA VALOR DESTE ARRAY SERÁ A LARGURA DE CADA COLUNA
+    $pdf->SetWidths(array(9,4.1,3,3));//CADA VALOR DESTE ARRAY SERÁ A LARGURA DE CADA COLUNA
     
     foreach($records as $r){
         if($r->nom_apelido!=NULL){$nome=$r->nom_nome." \"".$r->nom_apelido."\"";}else {$nome=$r->nom_nome;};
        
         $doc="";
-        $rgie="";
-        if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ $rgie.=" RG:".$r->cod_rg; }
-        if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ $doc.=" CPF:".$r->cod_cpf_cnpj; }
-        if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ $doc.=" CNPJ:".$r->cod_cpf_cnpj; }
-        if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ $rgie.=" IE:".$r->cod_ie; }
+        if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ $doc.=" CPF:".$r->cod_cpf_cnpj."\n"; }
+		if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ $doc.=" RG:".$r->cod_rg."\n"; }
+        if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ $doc.=" CNPJ:".$r->cod_cpf_cnpj."\n"; }
+        if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ $doc.=" IE:".$r->cod_ie."\n"; }
 
 
         //acrescenta () no ddd do telefone
@@ -67,7 +65,7 @@
         $tel=$num_ddd_tel." ".$num_tel;
         $cel=$num_ddd_cel." ".$num_cel;
         
-        $pdf->Row(array($nome,$doc,$rgie,$tel,$cel));
+        $pdf->Row(array($nome,$doc,$tel,$cel));
     }
     $pdf->Ln(1);
     $pdf->SetFont("Arial","",12);

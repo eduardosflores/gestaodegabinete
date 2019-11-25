@@ -161,7 +161,7 @@
                     ?>
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Pessoa:</label>  
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input name="nom_nome" id="busca" type="text" placeholder="" class="form-control input-md" required
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) {echo $linha->pessoa;} elseif (!empty($_SESSION['nom_nome']) && isset($_GET['pesquisa'])) {echo $_SESSION['nom_nome']; }?>">
                             <input type="hidden" id="cod_pessoa" name="cod_pessoa" value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) {echo $linha->cod_pessoa;}?>">
@@ -170,7 +170,7 @@
                     
                     <div class="form-group">
                         <label class="col-md-2 control-label"></label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <?php
                                 echo "<div>";
                                 echo "<img id='div_foto'>";
@@ -181,7 +181,7 @@
                     
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Data:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <input name="dat_atendimento" id="data" type="text" placeholder="" class="form-control input-md datepicker" onblur="validaData(this)" required
                                 value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) {echo escape(converteDataBR($linha->data));} elseif (!empty($_SESSION['dat_atendimento']) && isset($_GET['pesquisa'])) {echo $_SESSION['dat_atendimento']; } /*else echo date("d/m/Y");*/?>">
                         </div>
@@ -192,7 +192,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_tipo, nom_tipo FROM gab_tipo_atendimento WHERE ind_tipo ='A' order by nom_tipo")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-5">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_tipo">
                                        <option value="">Selecione</option>
                                        <?php
@@ -214,15 +214,15 @@
                                 $cond = false;
                             }
                             else
-                            {?>                          
-                                <div class="col-md-5">
+                            {?>
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_tipo" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Tipo de Atendimento cadastrado">
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Tipo de Atendimento cadastrado.</span>
                                 </div><?php 
                                 $cond = true;
@@ -236,7 +236,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_status, nom_status FROM gab_status_atendimento WHERE ind_status='A' order by nom_status")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-5">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_status">
                                        <option value="">Selecione</option>
                                        <?php
@@ -257,15 +257,15 @@
                                 $cond = false;
                             }
                             else
-                            {?>                          
-                                <div class="col-md-5">
+                            {?>
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_status" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Situação de Atendimento cadastrada">
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Situação de Atendimento cadastrada.</span>
                                 </div><?php 
                                 $cond = true;
@@ -280,7 +280,7 @@
                             
                     <div class="form-group">
                         <label for="observ" class="col-md-2 control-label">Detalhes:</label>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                             <textarea name="txt_detalhes" class="form-control" id="observ" rows="10" autocomplete="off"><?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) {echo trim($linha->detalhes);}?></textarea>
                         </div>
                     </div>

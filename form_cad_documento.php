@@ -268,7 +268,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_tip_doc, nom_tip_doc, ind_tip_doc FROM gab_tipo_documento WHERE ind_tip_doc ='A' order by nom_tip_doc")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_tipo">
                                        <option value="">Selecione</option>
                                        <?php
@@ -279,17 +279,17 @@
                                             if (($linha->cod_tip_doc==$linha_set_gab['cod_tip_doc'])){echo "selected";}}
                                             elseif (!empty($_SESSION['cod_tipo']) && isset($_GET['pesquisa'])){
                                                 if (($_SESSION['cod_tipo']==$linha_set_gab['cod_tip_doc'])){echo "selected";}}
-                                            ?>> 
+                                            ?>>
                                                <?php echo $linha_set_gab['nom_tip_doc'];?>
-                                       </option> 
+                                       </option>
                                        <?php
                                        }?>
                                    </select>
-                                </div><?php 
+                                </div><?php
                                 $cond = false;
                             }
                             else
-                            {?>                          
+                            {?>
                                 <div class="col-md-3">
                                     <select class="form-control" name="cod_tipo" disabled="true">
                                        <option value="">Selecione</option>
@@ -307,28 +307,28 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Número:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input name="nom_documento" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo $linha->nom_documento;} elseif (!empty($_SESSION['nom_documento']) && isset($_GET['pesquisa'])) {echo $_SESSION['nom_documento'];}?>">
                         </div>
-                        <label class="col-md-1 control-label" autocomplete="on">Ano:</label>  
-                        <div class="col-md-1">
+                        <label class="col-md-2 control-label" autocomplete="on">Ano:</label>  
+                        <div class="col-md-3">
                             <input name="dat_ano" type="text" placeholder="" class="form-control input-md" maxlength="4" minlength="4" onkeypress='return SomenteNumero(event)'
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo $linha->dat_ano;} elseif (!empty($_SESSION['dat_ano']) && isset($_GET['pesquisa'])) {echo $_SESSION['dat_ano']; }?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Data:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input name="dat_documento" id="data" type="text" placeholder="" class="form-control input-md datepicker" onblur="validaData(this)" required
                                 value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo escape(converteDataBR($linha->dat_documento));} elseif (!empty($_SESSION['dat_documento']) && isset($_GET['pesquisa'])) {echo $_SESSION['dat_documento'];}?>">
                         </div>
-                        <label class="col-md-1 control-label">Situação:</label>
+                        <label class="col-md-2 control-label">Situação:</label>
                         <?php
                         if ($resultado=$mysqli->query("SELECT cod_status, nom_status, ind_status FROM gab_status_documento WHERE ind_status ='A' order by nom_status")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-2">
+                               <div class="col-md-3">
                                    <select class="meuselect" name="cod_status">
                                        <option value="">Selecione</option>
                                        <?php
@@ -349,17 +349,16 @@
                                 $cond = false;
                             }
                             else
-                            {?>                          
-                                <div class="col-md-2">
+                            {?>
+                                <div class="col-md-3">
                                     <select class="form-control" name="cod_status" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Situação de Documento cadastrada">
-                                       </option> 
+                                       </option>
                                    </select>
+                                   <span class ="label-warning float-right" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Situação de Documento cadastrada.</span>
                                 </div>
-                                <div class="col-md-5">
-                                    <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Situação de Documento cadastrada.</span>
-                                </div><?php 
+                                <?php 
                                 $cond = true;
                             }
                         }
@@ -371,7 +370,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_uni_doc, nom_uni_doc, ind_uni_doc FROM gab_unidade_documento WHERE ind_uni_doc ='A' order by nom_uni_doc")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_uni_doc">
                                        <option value="">Selecione</option>
                                        <?php
@@ -392,7 +391,7 @@
                                 $cond = false;
                             }
                             else
-                            {?>                          
+                            {?>
                                 <div class="col-md-3">
                                     <select class="form-control" name="cod_uni_doc" disabled="true">
                                        <option value="">Selecione</option>
@@ -409,8 +408,8 @@
                         ?>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Assunto:</label>
-                        <div class="col-sm-7">
+                        <label class="col-md-2 control-label">Assunto:</label>
+                        <div class="col-md-8">
                             <textarea name="txt_assunto" class="form-control" rows="5"><?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo trim($linha->txt_assunto);}?></textarea>
                         </div>
                     </div>
@@ -427,9 +426,9 @@
                         </div>
                     </div>
                     
-                    <div class="form-group" style="<?php if(isset($_GET['alt']) && $cod_atendimento != null){echo "";} else {echo "display: none;";} ?>" id="div_atendimento">     
-                        <label class="col-sm-2 control-label"></label>
-                        <div class="col-sm-5">
+                    <div class="form-group" style="<?php if(isset($_GET['alt']) && $cod_atendimento != null){echo "";} else {echo "display: none;";} ?>" id="div_atendimento">
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-5">
                             <?php 
                             if(isset($_GET['alt']) && $cod_atendimento != null){
                                 
@@ -510,7 +509,7 @@
                         if ($documento==1){
                         ?>
                         <div class="form-group">
-                            <div class = "panel panel-success col-md-7">
+                            <div class = "panel panel-success col-md-8">
                                 <div class = "panel-heading">
                                    <h3 class = "panel-title">Documento</h3>
                                 </div>
@@ -518,14 +517,14 @@
                                 <div class = "panel-body">
                                    <div class="form-group">
                                         <label class="col-md-2 text-right"></label>
-                                        <div class="col-sm-7">
-                                            <?php echo "<a download='$filename' href='documentos/".$filename_cod."'>$filename</a><br>";?>     
+                                        <div class="col-md-8">
+                                            <?php echo "<a download='$filename' href='documentos/".$filename_cod."'>$filename</a><br>";?>
                                             <input onclick="MostraAltDocumento()" name="check_alt" type="checkbox">Substituir Documento
                                         </div>
                                     </div>
                                     <div class="form-group" id="alt_documento" style="display: none;">
                                         <label class="col-md-2 control-label"></label>
-                                        <div class="col-md-7 text-left">
+                                        <div class="col-md-8 text-left">
                                             <input name="documento" type="file" class="form-control">
                                             <span>Tamanho máximo:25 MB</span>
                                         </div>
@@ -533,7 +532,7 @@
                                 
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Link:</label>
-                                        <div class="col-sm-7">
+                                        <div class="col-md-8">
                                             <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento']) && !empty($linha->lnk_documento)) {
                                                 echo "<a target='_blank' href=".trim($linha->lnk_documento).">".trim($linha->lnk_documento)."</a><br>";?>
                                                 <input type="hidden" name="lnk_documento_bkp" value="<?php echo trim($linha->lnk_documento);?>">
@@ -557,7 +556,7 @@
                         ?>
                             
                             <div class="form-group">
-                                <div class = "panel panel-success col-md-7">
+                                <div class = "panel panel-success col-md-8">
                                     <div class = "panel-heading">
                                        <h3 class = "panel-title">Documento</h3>
                                     </div>
@@ -565,7 +564,7 @@
                                     <div class = "panel-body">
                                         <div class="form-group">
                                             <label class="col-md-2 control-label"></label>
-                                            <div class="col-sm-7 text-left">
+                                            <div class="col-md-8 text-left">
                                                 <input type="file" name="documento" class="form-control" 
                                                     value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo "documentos/".$cod_documento."docx";}?>">
                                                 <span>Tamanho máximo:25 MB</span>
@@ -574,7 +573,7 @@
 
                                         <div class="form-group">
                                             <label class="col-md-2 control-label">Link:</label>
-                                             <div class="col-sm-7">
+                                             <div class="col-md-8">
                                                 <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento']) && !empty($linha->lnk_documento)) {
                                                     echo "<a target='_blank' href=".trim($linha->lnk_documento).">".trim($linha->lnk_documento)."</a><br>";?>
                                                     <input type="hidden" name="lnk_documento_bkp" value="<?php echo trim($linha->lnk_documento);?>">
@@ -598,7 +597,7 @@
                     {?>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Documento:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input type="file" name="documento" class="form-control" 
                                     value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo "documentos/".$cod_documento."docx";}?>">
                                 <span>Tamanho máximo:25 MB</span>
@@ -607,7 +606,7 @@
                     
                         <div class="form-group">
                             <label class="col-md-2 control-label">Link Documento:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento']) && !empty($linha->lnk_documento)) {
                                     echo "<a target='_blank' href=".trim($linha->lnk_documento).">".trim($linha->lnk_documento)."</a><br>";?>
                                     <input type="hidden" name="lnk_documento_bkp" value="<?php echo trim($linha->lnk_documento);?>">
@@ -656,12 +655,12 @@
                                     break;
                                 }
                             }
-                        }                                
+                        }
                         
                         if ($doc_resposta==1){
                         ?>
                             <div class="form-group" id="bloco_resposta_alt">
-                                <div class = "panel panel-success col-sm-7">
+                                <div class = "panel panel-success col-md-8">
                                     <div class = "panel-heading">
                                        <h3 class = "panel-title">Resposta</h3>
                                     </div>
@@ -670,15 +669,15 @@
 
                                        <div class="form-group">
                                             <label class="col-md-2 text-right"></label>
-                                            <div class="col-sm-7">
+                                            <div class="col-md-8">
                                                 <?php echo "<a download='$filename' href='respostas/".$filename_cod."'>$filename</a><br>";?>     
                                                 <input onclick="MostraAltResposta()" name="check_alt_resposta" type="checkbox">Substituir Documento de Resposta
                                             </div>
                                        </div>
                                         
                                         <div class="form-group" id="alt_resposta" style="display: none;">
-                                            <label class="col-sm-2 control-label"></label>
-                                            <div class="col-sm-7 text-left">
+                                            <label class="col-md-2 control-label"></label>
+                                            <div class="col-md-8 text-left">
                                                 <input name="documento_resposta" type="file" class="form-control">
                                                 <span>Tamanho máximo:25 MB</span>
                                             </div>
@@ -686,7 +685,7 @@
                                         
                                         <div class="form-group" id="div_link_resposta">
                                             <label class="col-md-2 control-label">Link:</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-md-8">
                                                 <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento']) && !empty($linha->lnk_resposta)) {
                                                      echo "<a target='_blank' href=".trim($linha->lnk_resposta).">".trim($linha->lnk_resposta)."</a><br>";?>
                                                      <input type="hidden" name="lnk_resposta_bkp" value="<?php echo trim($linha->lnk_resposta);?>">
@@ -709,8 +708,8 @@
                                         </div>
                                
                                         <div class="form-group" id="div_detalhes">
-                                            <label class="col-sm-2 control-label">Detalhes:</label>
-                                            <div class="col-sm-10">
+                                            <label class="col-md-2 control-label">Detalhes:</label>
+                                            <div class="col-md-8">
                                                 <textarea name="txt_resposta" class="form-control" rows="5"><?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_documento'])) {echo trim($linha->txt_resposta);}?></textarea>
                                             </div>
                                         </div>
@@ -724,7 +723,7 @@
                         {
                         ?>
                             <div class="form-group" id="bloco_resposta_alt" style="<?php if ($dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                                <div class = "panel panel-success col-sm-7">
+                                <div class = "panel panel-success col-md-8">
                                     <div class = "panel-heading">
                                        <h3 class = "panel-title">Resposta</h3>
                                     </div>
@@ -732,16 +731,16 @@
                                     <div class = "panel-body">
 
                                         <div class="form-group" id="div_data" style="<?php if ($dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                                            <label class="col-sm-2 control-label" autocomplete="on">Data:</label>  
-                                            <div class="col-sm-3">
+                                            <label class="col-md-2 control-label" autocomplete="on">Data:</label>  
+                                            <div class="col-md-3">
                                                 <input name="dat_resposta" id="dat_resposta" type="text" class="form-control input-md datepicker" onblur="validaData(this)"
                                                        value="<?php echo escape(converteDataBR($dat_resposta)); ?>">
                                             </div>
                                         </div>
 
                                         <div class="form-group" id="div_documento" style="<?php if ($dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                                           <label class="col-sm-2 control-label"></label>
-                                            <div class="col-sm-7 text-left">
+                                           <label class="col-md-2 control-label"></label>
+                                            <div class="col-md-8 text-left">
                                                 <input name="documento_resposta" type="file" class="form-control">
                                                 <span>Tamanho máximo:25 MB</span>
                                             </div>
@@ -749,7 +748,7 @@
                                         
                                         <div class="form-group" id="div_link_resposta" style="<?php if($dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
                                             <label class="col-md-2 control-label">Link:</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-md-8">
                                                 <?php if (!empty($linha->lnk_resposta)) {
                                                      echo "<a target='_blank' href=".trim($linha->lnk_resposta).">".trim($linha->lnk_resposta)."</a><br>";?>
                                                      <input type="hidden" name="lnk_resposta_bkp" value="<?php echo trim($linha->lnk_resposta);?>">
@@ -764,8 +763,8 @@
                                         </div>
                                         
                                         <div class="form-group" id="div_detalhes" style="<?php if($dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                                            <label class="col-sm-2 control-label">Detalhes:</label>
-                                            <div class="col-sm-10">
+                                            <label class="col-md-2 control-label">Detalhes:</label>
+                                            <div class="col-md-10">
                                                 <textarea name="txt_resposta" class="form-control" rows="5"><?php echo trim($linha->txt_resposta); ?></textarea>
                                             </div>
                                         </div>
@@ -780,15 +779,15 @@
                     {?>
                         <div class="form-group" id="div_data" style="<?php if(isset($_GET['alt']) && $dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
                             <label class="col-md-2 control-label" autocomplete="on">Data:</label>  
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <input name="dat_resposta" id="dat_resposta" type="text" class="form-control input-md datepicker" onblur="validaData(this)"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && $dat_resposta != null) {echo escape(converteDataBR($linha->dat_resposta));}?>">
                             </div>
                         </div>
 
                         <div class="form-group" id="div_documento" style="<?php if(isset($_GET['alt']) && $dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                            <label class="col-sm-2 control-label">Resposta:</label>
-                            <div class="col-sm-5">
+                            <label class="col-md-2 control-label">Resposta:</label>
+                            <div class="col-md-8">
                                 <input name="documento_resposta" type="file" class="form-control">
                                 <span>Tamanho máximo:25 MB</span>
                             </div>
@@ -796,15 +795,15 @@
                     
                         <div class="form-group" id="div_link_resposta" style="<?php if(isset($_GET['alt']) && $dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
                             <label class="col-md-2 control-label">Link Resposta:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input name="lnk_resposta" type="text" placeholder="" class="form-control input-md"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && $dat_resposta != null) {echo $linha->lnk_resposta;}?>">
                             </div>
                         </div>
                     
                         <div class="form-group" id="div_detalhes" style="<?php if(isset($_GET['alt']) && $dat_resposta != null){echo "";} else {echo "display: none;";} ?>">
-                            <label class="col-sm-2 control-label">Detalhes:</label>
-                            <div class="col-sm-7">
+                            <label class="col-md-2 control-label">Detalhes:</label>
+                            <div class="col-md-8">
                                 <textarea name="txt_resposta" class="form-control" rows="5"><?php if (!empty ($_GET) && isset($_GET['alt']) && $dat_resposta != null) {echo trim($linha->txt_resposta);}?></textarea>
                             </div>
                         </div>

@@ -283,14 +283,14 @@
                     <?php if($_SESSION['ind_pessoa'] == "PF"){ ?>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="nome" autocomplete="on" id="nm">Nome:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input id="nome" name="nom_nome" type="text"  required placeholder="" class="form-control input-md"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_nome);} elseif (!empty($_SESSION['nom_nome']) && isset($_GET['pesquisa'])) {echo $_SESSION['nom_nome'];}?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="apelido" autocomplete="on">Apelido:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input id="apelido" name="nom_apelido" type="text" placeholder="" class="form-control input-md"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_apelido);} elseif (!empty($_SESSION['nom_apelido']) && isset($_GET['pesquisa'])) {echo $_SESSION['nom_apelido'];}?>">
                             </div>
@@ -298,14 +298,14 @@
                     <?php } else { ?>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="nome" autocomplete="on">Razão Social:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input id="nome" name="nom_nome" type="text" required placeholder="" class="form-control input-md"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_nome);}?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="fantasia" autocomplete="on">Nome Fantasia:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input id="fantasua" name="nom_fantasia" type="text" placeholder="" class="form-control input-md"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_apelido);}?>">
                             </div>
@@ -313,7 +313,7 @@
                         <!-- CAMPOS REPRESENTANTE -->
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="representante">Representante/Contato:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input id= "representante" name="nom_re" type="text" placeholder="" class="form-control input-md"
                                     value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_re);}?>">
                             </div>
@@ -321,7 +321,7 @@
                     <?php } ?>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="nom_ocupacao" autocomplete="on"><?php if($_SESSION['ind_pessoa'] == "PF") echo"Profissão:"; else echo "Segmento:";?> </label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input id="nom_ocupacao" name="nom_ocupacao" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_ocupacao);}?>">
                         </div>
@@ -329,19 +329,19 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="data"><?php if($_SESSION['ind_pessoa'] == "PF") {echo 'Data de Nascimento:';}else {echo 'Data de Constituição:';}?></label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input id="data" maxlength="10" name="dat_nascimento" type="text" placeholder="" class="form-control input-md datepicker" onblur="validaData(this)"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape(converteDataBR($linha->dat_nascimento));} elseif (!empty($_SESSION['dat_nascimento']) && isset($_GET['pesquisa'])) {echo $_SESSION['dat_nascimento'];}?>">
                         </div>
                         <?php if($_SESSION['ind_pessoa'] == "PJ"){ ?>
-                        <label class="col-md-2 control-label" for="ie" style="padding-right: 0px; padding-left:0px !important;max-width: 8.5%;">Inscrição Estadual</label>
-                        <div class="col-md-2">
+                        <label class="col-md-2 control-label" for="ie">Inscrição Estadual:</label>
+                        <div class="col-md-3">
                             <input maxlength="15" id="cod_ie" name="cod_ie" type="text" class="form-control input-md" title="Favor não utilizar pontuação."
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo $linha->cod_ie;}?>">
                         </div>
                         <?php } else { ?>
-                        <label class="col-md-1 control-label" for="radios">Sexo:</label>
-                        <div class="col-md-3" style="padding-left: 0px;">
+                        <label class="col-md-2 control-label" for="radios">Sexo:</label>
+                        <div class="col-md-3">
                             <div class="radio">
                                 <label for="masculino">
                                     <input type="radio" name="ind_sexo" id="masculino" value="M" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo $linha->ind_sexo == 'M' ? "checked" : null;}?>>
@@ -357,7 +357,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on"><?php if($_SESSION['ind_pessoa'] == "PF") {echo 'CPF:';}else {echo 'CNPJ:';}?></label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input id="<?php if($_SESSION['ind_pessoa'] == "PF") {echo 'cpf';}else {echo 'cnpj';}?>"name="cod_cpf_cnpj" type="text" class="form-control input-md"
                                    <?php if($_SESSION['ind_pessoa'] == "PF") {?> onblur="javascript: validarCPF(document.form.cpf);" onkeypress="javascript: mascara(this, cpf_mask);"<?php } ?>
                                    maxlength="<?php if($_SESSION['ind_pessoa'] == "PF") {echo '14';}else {echo '18';}?>"
@@ -366,8 +366,8 @@
                         <span id="msgCPF"></span>
                         </div>
                         <?php if($_SESSION['ind_pessoa'] == "PF"){ ?>
-                        <label class="col-md-1 control-label" for="rg">RG:</label>
-                        <div class="col-md-2">
+                        <label class="col-md-2 control-label" for="rg">RG:</label>
+                        <div class="col-md-3">
                             <input maxlength="12" id="cod_rg" name="cod_rg" type="text" class="form-control input-md" title="Favor utilizar pontuação."
                             value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($cod_rg);} elseif (!empty($_SESSION['cod_rg']) && isset($_GET['pesquisa'])) {echo $_SESSION['cod_rg'];}?>">
                         </div>
@@ -376,13 +376,13 @@
                     <!--Endereço do Usuario -->
                     <div class="form-group">
                         <label class="col-md-2 control-label">CEP:</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input id="num_cep" name="num_cep" type="text" placeholder="" class="form-control input-md"  maxlength="8" title="Favor utilizar pontuação."
                             value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($num_cep);}?>">
                             <span id="messagecep" ></span>
                         </div>
-                        <label class="col-md-1 control-label" for="estado">Estado:</label>
-                        <div class="col-md-2">
+                        <label class="col-md-2 control-label" for="estado">Estado:</label>
+                        <div class="col-md-3">
                             <select id="estado" name="nom_estado"   class="meuselect">
                                 <option value="" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa']))
                                     {echo ($linha->nom_estado == "") ?  "selected=\"selected\"" : null;}?> >Selecione</option>
@@ -446,7 +446,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="cidade" id="cd">Cidade:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input id="cidade" name="nom_cidade" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_cidade);}?>">
                         </div>
@@ -454,7 +454,7 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label">Bairro:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input id="bairro" name="nom_bairro" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_bairro);}?>">
                         </div>
@@ -462,7 +462,7 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="endereco">Endereço:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input id="endereco" name="nom_endereco" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_endereco);}?>">
                         </div>
@@ -470,13 +470,13 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="complemento">Complemento:</label>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <input id="complemento" name="nom_complemento" type="text" placeholder="" class="form-control input-md"
                                        value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_complemento);}?>">
                             </div>
 
-                        <label class="col-md-1 control-label" for="numero">Número:</label>
-                        <div class="col-md-2">
+                        <label class="col-md-2 control-label" for="numero">Número:</label>
+                        <div class="col-md-3">
                             <input id="numero" name="nom_numero" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_numero);}?>">
                         </div>
@@ -492,13 +492,13 @@
                             <input id="telefone" maxlength="2" name="num_ddd_tel" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->num_ddd_tel);}?>">
                         </div>
-                        <div class="col-md-2 em" >
+                        <div class="col-md-2 em">
                              <input id="telefone" maxlength="9" name="num_telefone" type="text" placeholder="" class="form-control input-md"
                                     value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($num_tel);}?>">
                         </div>
 
 
-                        <label class="col-md-1 control-label arr" for="celular" style="padding-left:0px !important;max-width: 6.3%;">Celular:</label>
+                        <label class="col-md-2 control-label arr" for="celular">Celular:</label>
                         <div class="col-md-1 en">
                             <input id="celular" maxlength="2" name="num_ddd_cel" type="text" placeholder="" class="form-control input-md "
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->num_ddd_cel);}?>">
@@ -510,7 +510,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="email">Email:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input id="email" name="nom_email" type="email" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_email);}?>">
                         </div>
@@ -518,7 +518,7 @@
                     </div>
                         <div class="form-group">
                         <label class="col-md-2 control-label" for="email">Link Rede Social:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input name="nom_rede_social" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->nom_rede_social);}?>">
                         </div>
@@ -530,12 +530,12 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="obs">Observações:</label>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                             <textarea class="form-control input-md" name="txt_obs" rows="4"><?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->txt_obs);}?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                         <div class="col-md-5 text-right">
+                         <div class="col-md-8 text-right">
                              <input type="submit" class="btn btn-default" onclick="return confirm('Confirma cadastro?'); <?php $_SESSION['ind_pessoa'] = "PF"; ?>" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) { echo "value='Alterar'";}else{ echo"value='Cadastrar'";}?>>
 
                              <input type="button" class="btn btn-default" value="Limpar" onclick="window.location='form_cad_pessoa.php';">
@@ -804,7 +804,6 @@
                                 <th class="text-center"><input type="checkbox"  onchange="checkAll(this)" name="chk[]"></th>
                                 <th>Nome</th>
                                 <th>Doc.Identificação</th>
-                                <th>Doc.Identificação</th>
                                 <th>Email</th>
                                 <th>Telefone/<br>Celular</th>
                                 <th>Alterar</th>
@@ -818,20 +817,29 @@
                                     <form name="form_etiquetas" target="_blank" action="form_cad_pessoa_etiqueta_pdf.php" type="post">
                                     <input name="cod_pessoa[]" type="checkbox" value="<?php echo ($r->cod_pessoa); ?>">
                                     <input type="hidden" name="origem" value="form_cad_pessoa"></td>
-                                    <td  width='20%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
-                                    <td  width='18%'>
+                                    <td  width='30%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
+                                    <td  width='20%'>
                                         <?php
-                                              if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo escape("CPF: ".$r->cod_cpf_cnpj); }
-                                              if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo escape("CNPJ: ".$r->cod_cpf_cnpj); }
+											if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj)."<br>"; }
+											if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg)."<br>"; }
+											if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."<br>"; }
+											if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie)."<br>"; }
+										?>
+                                    </td>
+									
+									<!---<td  width='18%'>
+                                        <?php
+                                              //if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo escape("CPF: ".$r->cod_cpf_cnpj); }
+                                              //if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo escape("CNPJ: ".$r->cod_cpf_cnpj); }
                                         ?>
                                     </td>
                                     <td  width='12%'>
                                         <?php
-                                            $cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$r->cod_rg);
-                                            if($r->ind_pessoa == "PF" && !empty($cod_rg)){ echo escape("RG: ".$cod_rg); }
-                                            if($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo escape("IE: ".$r->cod_ie); }
+                                            //$cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$r->cod_rg);
+                                            //if($r->ind_pessoa == "PF" && !empty($cod_rg)){ echo escape("RG: ".$cod_rg); }
+                                            //if($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo escape("IE: ".$r->cod_ie); }
                                         ?>
-                                    </td>
+                                    </td>--->
                                     <?php
                                         //acrescenta () no ddd do telefone
                                         $num_ddd_tel = $r->num_ddd_tel;

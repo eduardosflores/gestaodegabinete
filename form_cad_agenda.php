@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label class="col-md-2 control-label" for="googleCalendarApiKey" autocomplete="on">Google Calendar API:</label>
-                <div class="col-md-5">
+                <div class="col-md-8">
                     <input id="googleCalendarApiKey" name="api_key" type="text" required placeholder="" class="form-control input-md"
                             value="<?php if (isset($aux)) {echo escape($linha->api_key);}?>">
                 </div>
@@ -57,7 +57,7 @@
 
             <div class="form-group">
                 <label class="col-md-2 control-label" for="googleCalendarId" autocomplete="on">Google Calendar ID:</label>
-                <div class="col-md-5">
+                <div class="col-md-8">
                     <input id="googleCalendarId" name="calendar_id" type="text" required placeholder="" class="form-control input-md"
                             value="<?php if (isset($aux)) {echo escape($linha->calendar_id);}?>">
                 </div>

@@ -62,7 +62,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_car_pol, nom_car_pol, ind_car_pol FROM gab_cargo_politico WHERE ind_car_pol ='A' order by nom_car_pol")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_car_pol" required>
                                        <option value="">Selecione</option>
                                        <?php
@@ -79,7 +79,7 @@
                                 $cond = false;
                             }
                             else
-                            {?>                          
+                            {?>
                                 <div class="col-md-3">
                                     <select class="form-control" name="cod_car_pol" disabled="true">
                                        <option value="">Selecione</option>
@@ -99,7 +99,7 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="nome" autocomplete="on">Nome do Agente Político:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input id="nome" name="nom_vereador" type="text" required placeholder="" class="form-control input-md"
                                    value="<?php if (isset($aux)) {echo escape($linha->nom_vereador);}?>">
                         </div>
@@ -113,14 +113,14 @@
                     </div>
 					<div class="form-group">
                         <label class="col-md-2 control-label" for="cidade">Nome do Órgão:</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="nom_orgao" name="nom_orgao" type="text" required placeholder="" class="form-control input-md"
                                    value="<?php if (isset($aux)) {echo escape($linha->nom_orgao);}?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="estado">Estado:</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <select id="estado" name="nom_estado" class="meuselect" required>
                                 <option value="" <?php if (isset($aux))
                                     {echo ($linha->nom_estado == "") ?  "selected=\"selected\"" : null;}?> >Selecione</option>
@@ -180,22 +180,22 @@
                                     {echo ($linha->nom_estado == "TO") ?  "selected=\"selected\"" : null;}?>>Tocantins</option>
                             </select>
                         </div>
-                        <label class="col-md-1 control-label">CEP:</label>
-                        <div class="col-md-2">
+                        <label class="col-md-2 control-label">CEP:</label>
+                        <div class="col-md-3">
                             <input id="num_cep" name="num_cep" required type="text" placeholder="" class="form-control input-md"  maxlength="8" onblur="javascript: ValidaCep(document.form.cep);"
                             value="<?php if (isset($aux)) {echo escape($linha->num_cep);}?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="cidade">Cidade:</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="cidade" name="nom_cidade" required type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (isset($aux)) {echo escape($linha->nom_cidade);}?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="endereco">Endereço:</label>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <input id="endereco" name="nom_endereco" type="text" required placeholder="" class="form-control input-md"
                                    value="<?php if (isset($aux)) {echo escape($linha->nom_endereco);}?>">
                         </div>
@@ -207,7 +207,7 @@
                     </div>
                     <div class="form-group">
                             <label class="col-md-2 control-label"  for="complemento">Bairro/Complemento:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-8">
                                 <input id="complemento" name="nom_complemento" type="text" required placeholder="" class="form-control input-md"
                                        value="<?php if (isset($aux)) {echo escape($linha->nom_complemento);}?>">
                             </div>
@@ -222,8 +222,8 @@
                     <?php } ?>
                     <div class="form-group">
                             <label class="col-md-2 control-label">Foto do Agente Político:</label>
-                            <div class="col-md-5">
-                                <input type="file" name="foto"/>
+                            <div class="col-md-8">
+                                <input type="file" name="foto" class="form-control"/>
                                 <span>Tamanho máximo:2 MB</span><br>
                                 <span>Dimensões recomendadas 300x500 pixels.</span>
                             </div>

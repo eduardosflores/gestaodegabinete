@@ -22,7 +22,9 @@ Descrição: Cabeçalho do sistema
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
-          <i class="fas fa-bars" aria-hidden="true"></i>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
       </div>
 
@@ -100,7 +102,7 @@ Descrição: Cabeçalho do sistema
             } else { ?>
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <b>AJUDA&#9662;</b></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-right">
                     <li><a href="form_sobre.php"><b>Sobre o Sistema</b></a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="form_manual.php"><b>Manual do Usuário</b></a></li>

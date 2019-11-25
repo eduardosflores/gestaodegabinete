@@ -64,7 +64,7 @@
                    
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Pessoa:</label>  
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <input name="nom_nome" id="busca" type="text" placeholder="" class="form-control input-md" 
                                    value="<?php if (isset($_GET['pessoa'])) {echo $_GET['pessoa'];}?>">
                             <input type="hidden" id="cod_pessoa" name="cod_pessoa" value="<?php if (isset($_GET['cod_pessoa'])) {echo $_GET['cod_pessoa'];}?>">
@@ -73,7 +73,7 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label"></label>
-                        <div class="col-md-5">
+                        <div class="col-md-8">
                             <?php
                                 echo "<div>";
                                 echo "<img id='div_foto'>";
@@ -89,7 +89,7 @@
                         if ($resultado=$mysqli->query("SELECT distinct nom_estado FROM gab_pessoa WHERE nom_estado is not null and ind_status ='A' order by nom_estado")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="nom_estado">
                                        <option value="">Selecione</option>
                                        <?php
@@ -106,14 +106,14 @@
                             }
                             else
                             {?>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <select class="form-control" name="nom_estado" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Estado cadastrado">
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                    <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe estado cadastrado.</span>
                                 </div><?php 
                                 $cond = true;
@@ -128,7 +128,7 @@
                         if ($resultado=$mysqli->query("SELECT distinct nom_cidade FROM gab_pessoa WHERE nom_cidade is not null and ind_status ='A' order by nom_cidade")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="nom_cidade">
                                        <option value="">Selecione</option>
                                        <?php
@@ -145,14 +145,14 @@
                             }
                             else
                             {?>                          
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <select class="form-control" name="nom_cidade" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Cidade cadastrada">
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                    <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe cidade cadastrada.</span>
                                 </div><?php 
                                 $cond = true;
@@ -167,7 +167,7 @@
                         if ($resultado=$mysqli->query("SELECT distinct nom_bairro FROM gab_pessoa WHERE nom_bairro is not null and ind_status ='A' order by nom_bairro")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="nom_bairro">
                                        <option value="">Selecione</option>
                                        <?php
@@ -184,14 +184,14 @@
                             }
                             else
                             {?>                          
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <select class="form-control" name="nom_bairro" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Bairro cadastrado">
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                    <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Bairro cadastrado.</span>
                                 </div><?php 
                                 $cond = true;
@@ -202,11 +202,11 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="dataInicio">Data inicial:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input name="dataInicio"  type="text" class="form-control input-md datepicker" onblur="validaData(this)" value="<?php if (isset($_GET['dataInicio'])){if(strpos($_GET['dataInicio'], '/') === false) echo converteDataBR($_GET['dataInicio']);else echo $_GET['dataInicio'];}  ?>">
                         </div>
                         <label class="col-md-2 control-label" for="dataFim">Data final:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input  name="dataFim" type="text" class="form-control input-md datepicker" onblur="validaData(this)" value="<?php if (isset($_GET['dataFim'])){if(strpos($_GET['dataFim'], '/') === false) echo converteDataBR($_GET['dataFim']);else echo $_GET['dataFim'];} ?>">
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_tipo, nom_tipo FROM gab_tipo_atendimento WHERE ind_tipo ='A' order by nom_tipo")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-5">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_tipo">
                                        <option value="">Selecione</option>
                                        <?php
@@ -234,13 +234,13 @@
                             }
                             else
                             {?>                          
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_tipo" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Tipo de Atendimento cadastrado"</option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Tipo de Atendimento cadastrado.</span>
                                 </div><?php 
                                 $cond = true;
@@ -254,7 +254,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_status, nom_status FROM gab_status_atendimento WHERE ind_status='A' order by nom_status")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-5">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_status">
                                        <option value="">Selecione</option>
                                        <?php
@@ -271,13 +271,13 @@
                             }
                             else
                             {?>                          
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_status" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Situação de Atendimento cadastrada"</option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Situação de Atendimento cadastrada.</span>
                                 </div><?php 
                                 $cond = true;

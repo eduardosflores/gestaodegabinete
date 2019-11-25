@@ -58,7 +58,7 @@ session_start();
                     ?>
                 <div class="form-group">
                     <label class="col-md-2 control-label" autocomplete="on">Nome de Usuário: </label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input class="txt-auto form-control" type='text' name='nom_usuario' id='nom_usuario' required
                         <?php if ((isset($_GET['alt']) || isset($_GET['pw'])) && isset($_GET['nom_usuario'])) {echo "value='$linha->nom_usuario' readonly";}?>/>
                     </div>
@@ -66,13 +66,13 @@ session_start();
                 <?php if (!isset($_GET['alt'])){?>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Senha:</label> 
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="password" class="form-control txt-auto" name="nom_senha" id="nom_senha" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" autocomplete="on">Confirmar Senha: </label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input type="password" class="form-control txt-auto" name="confirma_nom_senha" id="confirma_nom_senha" required/>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ session_start();
                 if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['nom_usuario'])){?>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Status:</label> 
-                    <div class="col-md-3">
+                    <div class="col-md-8">
                         <div class="radio">
                             <label for="ativo">
                                 <input name="ind_status" required type="radio" id="ativo" value="A" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['nom_usuario'])) {echo ($linha->ind_status == 'A') ? "checked" : null;} ?>/>

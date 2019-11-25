@@ -152,7 +152,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_tip_doc, nom_tip_doc, ind_tip_doc FROM gab_tipo_documento WHERE ind_tip_doc ='A' order by nom_tip_doc")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_tip_doc">
                                        <option value="">Selecione</option>
                                        <?php
@@ -171,14 +171,14 @@
                             }
                             else
                             {?>                          
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_tip_doc" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Tipo de Documento cadastrado"
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                    <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Tipo de Documento cadastrado.</span>
                                 </div><?php 
                                 $cond = true;
@@ -188,12 +188,12 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Número:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input name="nom_documento" type="text" placeholder="" class="form-control input-md"
                                    value="<?php if (isset($_GET['nom_documento'])) {echo $_GET['nom_documento'];}?>">
                         </div>
                         <label class="col-md-2 control-label" autocomplete="on">Ano:</label>  
-                        <div class="col-md-1">
+                        <div class="col-md-3">
                             <input name="dat_ano" type="text" placeholder="" class="form-control input-md" maxlength="4" minlength="4" onkeypress='return SomenteNumero(event)'
                                    value="<?php if (isset($_GET['dat_ano'])) {echo $_GET['dat_ano'];}?>">
                         </div>
@@ -203,23 +203,23 @@
 
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="dataInicio">Data inicial:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input name="dataInicio"  type="text" class="form-control input-md datepicker" onblur="validaData(this)" value="<?php if (isset($_GET['dataInicio'])){if(strpos($_GET['dataInicio'], '/') === false) echo converteDataBR($_GET['dataInicio']);else echo $_GET['dataInicio'];}  ?>">
                         </div>
                         <label class="col-md-2 control-label" for="dataFim">Data final:</label>  
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input  name="dataFim" type="text" class="form-control input-md datepicker" onblur="validaData(this)" value="<?php if (isset($_GET['dataFim'])){if(strpos($_GET['dataFim'], '/') === false) echo converteDataBR($_GET['dataFim']);else echo $_GET['dataFim'];} ?>">
                         </div>
                     </div>
 
                         <div class="form-group">
                         <label class="col-md-2 control-label">Situação:</label>
-                        <div class="col-md-2">
+                        <!-- <div class="col-md-8"> -->
                         <?php
                         if ($resultado=$mysqli->query("SELECT cod_status, nom_status, ind_status FROM gab_status_documento WHERE ind_status ='A' order by nom_status")){
                             if ($resultado->num_rows){?>
 
-                              <!-- <div class="col-md-2">-->
+                              <div class="col-md-8">
                                    <select class="meuselect" name="cod_status">
                                        <option value="">Selecione</option>
                                        <?php
@@ -238,14 +238,14 @@
                             }
                             else
                             {?>                          
-                                <!--<div class="col-md-2">-->
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_status" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Situação de Documento cadastrada"
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Situação de Documento cadastrada.</span>
                                 <!--</div>--><?php 
                                 $cond = true;
@@ -260,7 +260,7 @@
                         if ($resultado=$mysqli->query("SELECT cod_uni_doc, nom_uni_doc, ind_uni_doc FROM gab_unidade_documento WHERE ind_uni_doc ='A' order by nom_uni_doc")){
                             if ($resultado->num_rows){?>
 
-                               <div class="col-md-3">
+                               <div class="col-md-8">
                                    <select class="meuselect" name="cod_uni_doc">
                                        <option value="">Selecione</option>
                                        <?php
@@ -279,14 +279,14 @@
                             }
                             else
                             {?>                          
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <select class="form-control" name="cod_uni_doc" disabled="true">
                                        <option value="">Selecione</option>
                                        <option value="Não existe Unidade Administrativa cadastrada"
                                        </option> 
                                    </select>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <span class ="label-warning" style="float: left !important; margin-top: 2px; font-size: 20px;">Não existe Unidade Administrativa cadastrada.</span>
                                 </div><?php 
                                 $cond = true;
@@ -376,7 +376,7 @@
                   
                         <div class="form-group" id="div_data" style="display: none;">
                             <label class="col-md-2 control-label" autocomplete="on">Data:</label>  
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <input name="dat_resposta" id="dat_resposta" type="text" class="form-control input-md datepicker" onblur="validaData(this)">
                             </div>
                         </div>
