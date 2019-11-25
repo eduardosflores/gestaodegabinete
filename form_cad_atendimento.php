@@ -181,7 +181,7 @@
                     
                     <div class="form-group">
                         <label class="col-md-2 control-label" autocomplete="on">Data:</label>  
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <input name="dat_atendimento" id="data" type="text" placeholder="" class="form-control input-md datepicker" onblur="validaData(this)" required
                                 value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) {echo escape(converteDataBR($linha->data));} elseif (!empty($_SESSION['dat_atendimento']) && isset($_GET['pesquisa'])) {echo $_SESSION['dat_atendimento']; } /*else echo date("d/m/Y");*/?>">
                         </div>
