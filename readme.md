@@ -23,7 +23,7 @@ Siga o passo-a-passo abaixo para instalação e configuração do software "Gest
         post_max_size=55M
         ```
         
-        Neste mesmo arquivo (`\xampp\php\php.ini`), colocar o fuso horário da sua região, por exemplo:
+        Neste mesmo arquivo (`\xampp\php\php.ini`), definir o fuso horário da sua região, como no exemplo abaixo:
          ```
         date.timezone=America/Sao_Paulo
         ```
