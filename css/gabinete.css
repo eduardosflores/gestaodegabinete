@@ -148,6 +148,10 @@ body {
 .meuselect{
     width: 100%;
 }
+.select2-selection,
+.select2-dropdown{
+    border-color: #ccc!important;
+}
 
 /* Responsive table overflow */
 .table-of{
