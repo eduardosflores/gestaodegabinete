@@ -22,6 +22,12 @@ Siga o passo-a-passo abaixo para instalação e configuração do software "Gest
         upload_max_filesize=52M
         post_max_size=55M
         ```
+        
+        Neste mesmo arquivo (`\xampp\php\php.ini`), colocar o fuso horário da sua região, por exemplo:
+         ```
+        date.timezone=America/Sao_Paulo
+        ```
+        
     - No arquivo `\xampp\mysql\bin\my.ini`, utilizar:
     
         ```
