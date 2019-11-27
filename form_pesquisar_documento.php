@@ -58,15 +58,15 @@
             
             function MostraResposta(){
                 if(document.form.check_resposta.checked == true){
-                    document.getElementById( 'div_data' ).style.display = '';                  
+                    document.getElementById( 'div_data' ).style.display = '';
                 }
                 else{
-                    document.getElementById( 'div_data' ).style.display = 'none';                
+                    document.getElementById( 'div_data' ).style.display = 'none';
                 }
             }
             
 
-            function MostraResposta_pesq(id){                    
+            function MostraResposta_pesq(id){
                     var div_resp = 'div_resposta_pesq_'+id;
                     document.getElementById(div_resp).style.display = '';
                     
@@ -91,7 +91,7 @@
             
           
             function SomenteNumero(e){
-                var tecla=(window.event)?event.keyCode:e.which;   
+                var tecla=(window.event)?event.keyCode:e.which;
                 if((tecla>47 && tecla<58)) return true;
                 else{
                     if (tecla==8 || tecla==0) return true;
@@ -347,11 +347,11 @@
                             <div id="dadosAtendimento">
                                 <?php 
                                 if(isset($_GET['cod_atendimento']) && $dados==1){
-                                    echo "<b>Data:</b>".$dat_atendimento ."<br>".
-                                         "<b>Pessoa:</b>".$nom_nome."<br>".
-                                         "<b>Doc. Identificação:</b>".$doc."<br>".
-                                         "<b>Tipo:</b>".$nom_tipo."<br>".
-                                         "<b>Situação:</b>".$nom_status;
+                                    echo "<p><b>Data:</b>".$dat_atendimento ."</p>".
+                                         "<p><b>Pessoa:</b>".$nom_nome."</p>".
+                                         "<p><b>Doc. Identificação:</b>".$doc."</p>".
+                                         "<p><b>Tipo:</b>".$nom_tipo."</p>".
+                                         "<p><b>Situação:</b>".$nom_status."</p>";
                                 } ?>
 
                             </div>
@@ -755,11 +755,11 @@
                                                                 //Doc. Identificação:
                                                                 $doc="";
                                                                 if($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_rg)){
-                                                                    $cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$linha_atend->cod_rg);                                                                   
-                                                                    $doc.="<b>RG:</b>".$cod_rg."<br>"; }
-                                                                if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="<b>CPF:</b>".$linha_atend->cod_cpf_cnpj."<br>";}
-                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="<b>CNPJ:</b>".$linha_atend->cod_cpf_cnpj."<br>";}
-                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ $doc.="<b>IE:</b>".$linha_atend->cod_ie."<br>";}
+                                                                    $cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$linha_atend->cod_rg);
+                                                                    $doc.="<p><b>RG:</b>".$cod_rg."</p>"; }
+                                                                if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="<p><b>CPF:</b>".$linha_atend->cod_cpf_cnpj."</p>";}
+                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="<p><b>CNPJ:</b>".$linha_atend->cod_cpf_cnpj."</p>";}
+                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ $doc.="<p><b>IE:</b>".$linha_atend->cod_ie."</p>";}
 
                                                                 $dat_atendimento=converteDataBR($linha_atend->dat_atendimento);
 
