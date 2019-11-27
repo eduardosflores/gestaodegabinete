@@ -172,10 +172,10 @@ session_start();
                                 <tr>
                                     <td  width='30%'><?php echo escape($r->nom_usuario); ?></td>
                                     
-                                    <td  width='10%'><?php if($r->ind_status == 'A') echo 'Ativo'; else if ($r->ind_status == 'N') echo 'Novo usuário'; else echo 'Inativo';?></td>
+                                    <td  width='10%'><?php if($r->ind_status == 'I') echo 'Inativo'; else echo 'Ativo';?></td>
                                     <?php $nom_usuario=$r->nom_usuario;?>
-                                    <td  width='10%'><?php if($r->ind_status != 'N'){?><a href="form_cad_usuario.php?alt=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-pencil-alt" style="font-size:20px; color:000000;"></i></a><?php } ?></td>
-                                    <td  width='10%'><?php if($r->ind_status != 'N'){?><a href="form_cad_usuario.php?pw=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-lock" style="font-size:20px; color:000000;"></i></a><?php }?></td>
+                                    <td  width='10%'><a href="form_cad_usuario.php?alt=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-pencil-alt" style="font-size:20px; color:000000;"></i></a></td>
+                                    <td  width='10%'><a href="form_cad_usuario.php?pw=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-lock" style="font-size:20px; color:000000;"></i></a></td>
                                     <td  width='10%'><a href="action_cad_usuario.php?del=1&nom_usuario=<?php echo $nom_usuario; ?>" onclick="return confirm('Confirma exclusão?');"><i class="fas fa-trash-alt" style="font-size:20px; color:000000;"></i></a></td>
                                 </tr>
                                 <?php

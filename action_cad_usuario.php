@@ -73,7 +73,7 @@
                 die();
             }
             
-            $ind_status = 'N'; //status para novo usuário / só muda para 'A' quando o usuário alterar a senha após acesso
+            $ind_status = 'A';
            
             // Crie um salt aleatório
             $random_salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
