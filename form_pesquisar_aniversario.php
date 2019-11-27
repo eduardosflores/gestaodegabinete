@@ -104,7 +104,7 @@
                 }
                 ?>
                 <h1 class="h2">Relatório: Etiquetas de Aniversariantes</h1>
-
+                <?php echo "data atual:".date("d M Y H:i:s");?>
                 <form name="form" class="form-horizontal" type="post">
                 <div class="form-group">
                         <label class="col-md-2 control-label">Data Inicial:</label>

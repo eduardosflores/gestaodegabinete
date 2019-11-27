@@ -67,12 +67,28 @@
                     $linha_atend=$resultado->fetch_object();
                     
                     $doc="";
-                    if($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_rg)){ $doc.=" RG:".$linha_atend->cod_rg; }
-                    if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.=" CPF:".$linha_atend->cod_cpf_cnpj; }
-                    if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.=" CNPJ:".$linha_atend->cod_cpf_cnpj; }
-                    if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ $doc.=" IE:".$linha_atend->cod_ie; }
                     
-                   
+                    if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj) && !empty($linha_atend->cod_rg)){ 
+                        $doc="CPF:".$linha_atend->cod_cpf_cnpj; 
+                        $doc.="\nRG:".$linha_atend->cod_rg;
+                    }
+                    else if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){
+                        $doc="CPF:".$linha_atend->cod_cpf_cnpj; 
+                    }
+                    else if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_rg)){
+                        $doc.="RG:".$linha_atend->cod_rg;
+                    }
+
+                    if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj) && !empty($linha_atend->cod_ie)){ 
+                        $doc.="CNPJ:".$linha_atend->cod_cpf_cnpj; 
+                        $doc.="\nIE:".$linha_atend->cod_ie;
+                    }           
+                    else if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ 
+                        $doc.="CNPJ:".$linha_atend->cod_cpf_cnpj; 
+                    }
+                    else if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ 
+                        $doc.="IE:".$linha_atend->cod_ie; 
+                    }
                     
                 }
             }
@@ -83,7 +99,7 @@
             $nom_tipo=$linha_atend->nom_tipo;
             $nom_status2=$linha_atend->nom_status;
             
-            $atendimento="Data: $dat_atendimento  \nPessoa: $nom_nome \nDoc. Identificação: $doc \nTipo: $nom_tipo \nSituação:$nom_status2";
+            $atendimento="$dat_atendimento  \n$nom_nome \n$doc \nTipo: $nom_tipo \nSituação:$nom_status2";
         }else{
             $dat_atendimento="";
             $nom_nome="";

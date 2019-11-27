@@ -211,7 +211,7 @@
                         googleCalendarId: '<?php echo escape($line->calendar_id) ?>'
                     },
                     locale: 'pt-br',
-                    timeZone: 'America/Sao_Paulo',
+                    timeZone: '<?php echo date_default_timezone_get() ?>',
                     themeSystem: 'bootstrap',
                     defaultView: 'listTodayTomorrow',
                     height: 500,

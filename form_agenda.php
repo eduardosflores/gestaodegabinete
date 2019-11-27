@@ -120,7 +120,7 @@
                     googleCalendarId: '<?php echo escape($linha->calendar_id) ?>'
                 },
                 locale: 'pt-br',
-                timeZone: 'America/Sao_Paulo',
+                timeZone: '<?php echo date_default_timezone_get() ?>',
                 themeSystem: 'bootstrap',
                 defaultView: view,
                 header: header,
