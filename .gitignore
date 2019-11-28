@@ -1,6 +1,6 @@
-documentos/
+documentos/*
 fotos/*
 !fotos/sem-foto.jpg
-respostas/
-temp/
+respostas/*
+temp/*
 includes/conexao.local.php
