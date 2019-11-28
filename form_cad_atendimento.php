@@ -289,8 +289,8 @@
                     <br>
                     <div class="form-group">
                         <div class="col-md-5 text-right">
-                            <input type="submit" <?php if($cond) { echo "disabled";}?> class="btn btn-default" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) { echo "value='Alterar'";} else{ echo"value='Cadastrar'";}?>>
-                            <input type="button" class="btn btn-default" value="Limpar" onclick="window.location='form_cad_atendimento.php';"> 
+                            <input type="submit" <?php if($cond || isset ($_GET['mod'])) { echo "disabled";}?> class="btn btn-default" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) { echo "value='Alterar'";} else{ echo"value='Cadastrar'";}?>>
+                            <input type="button" class="btn btn-default" value="Limpar" <?php if (isset ($_GET['mod'])){echo "onclick='window.location=form_cad_atendimento.php?mod=1';";} else{echo "onclick='window.location=form_cad_atendimento.php';";} ?>> 
                             <input type="button" id="pes" class="btn btn-default" value="Pesquisar" onclick="pesquisar();">
                             <input type="button" id="voltar" class="btn btn-default" value="Voltar" onclick="voltarPagina();" <?php if (isset($_GET['mod']) || !isset($_GET['pesquisa']) && !isset($_GET['alt'])){ echo "style='visibility:hidden;'";} else { echo "style='visibility:block;'";}?>	 >
                         </div>
@@ -472,10 +472,21 @@
                                         <td  width='5%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>"><?php echo converteDataBR($r->data);?></a></td>
                                         <td  width='25%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>"><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome);?></a></td>
                                         <td  width='25%'><a href="action_cad_atendimento.php?mod=1&cod_atendimento=<?php echo $cod_atendimento;?>">
-                                            <?php if($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg); }
-                                                  if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj); }
-                                                  if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj); }
-                                                  if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie); }
+                                            <?php 
+                                            
+                                                if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj) && !empty($r->cod_rg)){ 
+                                                        echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj).
+                                                        "<br><b> RG:</b>".escape($r->cod_rg);
+                                                }
+                                                else if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj); }
+                                                else if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg); }
+
+                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj) && !empty($r->cod_ie)){ 
+                                                    echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj).
+                                                    "<br><b> IE:</b>".escape($r->cod_ie);
+                                                }
+                                                else if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj); }
+                                                else if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie); }
                                             ?>
                                             </a>
                                         </td>
@@ -487,10 +498,10 @@
                                         <td  width='5%'><?php echo converteDataBR($r->data);?></td> 
                                         <td  width='30%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
                                         <td  width='20%'>
-                                            <?php if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<p><b> CPF:</b>".escape($r->cod_cpf_cnpj)."</p>";}
-                                                if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<p><b> RG:</b>".escape($r->cod_rg)."</p>";}
-                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<p><b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."</p>";}
-                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie)."</p>";}
+                                            <?php if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj)."<br>";}
+                                                if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg)."<br>";}
+                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."<br>";}
+                                                if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie)."<br>";}
                                             ?>
                                         </td>
                                         <td  width='15%'><?php echo $r->tipo;?></td>

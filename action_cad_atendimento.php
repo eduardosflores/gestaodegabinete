@@ -118,8 +118,8 @@
                                 $linha=$resultado->fetch_object();
                                 
                                 $doc="";
-                                if($linha->ind_pessoa == "PF" && !empty($linha->cod_rg)){ $doc.=" RG:".$linha->cod_rg; }
                                 if ($linha->ind_pessoa == "PF" && !empty($linha->cod_cpf_cnpj)){ $doc.=" CPF:".$linha->cod_cpf_cnpj; }
+                                if($linha->ind_pessoa == "PF" && !empty($linha->cod_rg)){ $doc.=" RG:".$linha->cod_rg; }
                                 if ($linha->ind_pessoa == "PJ" && !empty($linha->cod_cpf_cnpj)){ $doc.=" CNPJ:".$linha->cod_cpf_cnpj; }
                                 if ($linha->ind_pessoa == "PJ" && !empty($linha->cod_ie)){ $doc.=" IE:".$linha->cod_ie; }
                                 

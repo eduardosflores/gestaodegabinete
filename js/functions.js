@@ -94,80 +94,57 @@ $( function() {
 } );
 
 
-
-function validarCPF(cpf){
-
-   var filtro = /\d{3}.\d{3}.\d{3}-\d{2}/;
-   if(!filtro.test(cpf.value))
-   {
-           //window.alert("CPF inválido. Tente novamente.");
-           document.form.cpf.value="";
-           return false;
-   } else document.getElementById('message').innerHTML = '';
-
-   cpf2 = remove(cpf.value, ".");
-   cpf2 = remove(cpf2, "-");
-
-
-   if(cpf2.length != 11 || cpf2 == "00000000000" || cpf2 == "11111111111" ||
-           cpf2 == "22222222222" || cpf2 == "33333333333" || cpf2 == "44444444444" ||
-           cpf2 == "55555555555" || cpf2 == "66666666666" || cpf2 == "77777777777" ||
-           cpf2 == "88888888888" || cpf2 == "99999999999")
-   {
+function validarCPF(cpf) {	
+	cpf = cpf.replace(/[^\d]+/g,'');	
+	if(cpf == '') {
         document.getElementById('message').innerHTML = 'CPF inválido.';
-           //window.alert("CPF inválido. Tente novamente.");
-           document.form.cpf.value="";
-           return false;
-   } else document.getElementById('message').innerHTML = '';
-
-   soma = 0;
-   for(i = 0; i < 9; i++)
-   {
-           soma += parseInt(cpf.charAt(i)) * (10 - i);
-   }
-
-   resto = 11 - (soma % 11);
-   if(resto == 10 || resto == 11)
-   {
-           resto = 0;
-   }
-   if(resto != parseInt(cpf.charAt(9))){
-        document.getElementById('message').innerHTML = 'CPF inválido.';
-           //window.alert("CPF inválido. Tente novamente.");
-           document.form.cpf.value="";
-           return false;
-   } else document.getElementById('message').innerHTML = '';
-
-   soma = 0;
-   for(i = 0; i < 10; i ++)
-   {
-           soma += parseInt(cpf.charAt(i)) * (11 - i);
-   }
-   resto = 11 - (soma % 11);
-   if(resto == 10 || resto == 11)
-   {
-           resto = 0;
-   }
-
-   if(resto != parseInt(cpf.charAt(10))){
-        document.getElementById('message').innerHTML = 'CPF inválido.';
-           //window.alert("CPF inválido. Tente novamente.");
-           document.form.cpf.value="";
-           return false;
-   } else document.getElementById('message').innerHTML = '';
-   return true;
-}
-
-function remove(str, sub) {
-        i = str.indexOf(sub);
-        r = "";
-        if (i == -1) return str;
-        {
-                r += str.substring(0,i) + remove(str.substring(i + sub.length), sub);
+        document.form.cpf.value="";
+        return false;	
+    }
+	// Elimina CPFs invalidos conhecidos	
+	if (cpf.length != 11 || 
+		cpf == "00000000000" || 
+		cpf == "11111111111" || 
+		cpf == "22222222222" || 
+		cpf == "33333333333" || 
+		cpf == "44444444444" || 
+		cpf == "55555555555" || 
+		cpf == "66666666666" || 
+		cpf == "77777777777" || 
+		cpf == "88888888888" || 
+		cpf == "99999999999"){
+            document.getElementById('message').innerHTML = 'CPF inválido.';
+            document.form.cpf.value="";
+            return false;	
+        }	
+	// Valida 1o digito	
+	add = 0;	
+	for (i=0; i < 9; i ++)		
+		add += parseInt(cpf.charAt(i)) * (10 - i);	
+		rev = 11 - (add % 11);	
+		if (rev == 10 || rev == 11)		
+			rev = 0;	
+		if (rev != parseInt(cpf.charAt(9))){
+            document.getElementById('message').innerHTML = 'CPF inválido.';
+            document.form.cpf.value="";
+            return false;		
         }
-
-        return r;
+	// Valida 2o digito	
+	add = 0;	
+	for (i = 0; i < 10; i ++)		
+		add += parseInt(cpf.charAt(i)) * (11 - i);	
+	rev = 11 - (add % 11);	
+	if (rev == 10 || rev == 11)	
+		rev = 0;	
+	if (rev != parseInt(cpf.charAt(10))){
+        document.getElementById('message').innerHTML = 'CPF inválido.';
+        document.form.cpf.value="";
+        return false;		
+    }
+    document.getElementById('message').innerHTML = '';
+	return true;   
 }
+
 
 /**
    * MASCARA ( mascara(o,f) e execmascara() ) CRIADAS POR ELCIO LUIZ

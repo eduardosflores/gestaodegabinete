@@ -326,8 +326,8 @@
                                         $linha_atend=$resultado->fetch_object();
                                         
                                         $doc="";
-                                        if($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_rg)){ $doc.=" RG:".$linha_atend->cod_rg; }
                                         if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.=" CPF:".$linha_atend->cod_cpf_cnpj; }
+                                        if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_rg)){ $doc.=" RG:".$linha_atend->cod_rg; }
                                         if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.=" CNPJ:".$linha_atend->cod_cpf_cnpj; }
                                         if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ $doc.=" IE:".$linha_atend->cod_ie; }
 
@@ -713,8 +713,8 @@
                                     <td  width='5%'><?php echo converteDataBR($r->dat_documento);?></td>
                                     <td  width='10%'><?php echo escape($r->nom_documento)."/".$r->dat_ano; ?></td>
                                     <td  width='15%'><?php echo escape($r->nom_tip_doc); ?></td>
-                                    <td  width='20%'><?php echo escape($r->nom_status); ?></td>
-                                    <td  width='20%'><?php echo escape($r->nom_uni_doc); ?></td>
+                                    <td  width='15%'><?php echo escape($r->nom_status); ?></td>
+                                    <td  width='15%'><?php echo escape($r->nom_uni_doc); ?></td>
                                     
                                     <?php $cod_atendimento=$r->cod_atendimento; 
                                           $nom_div_atend='div_atendimento_pesq_'.$cod_documento;
@@ -726,7 +726,7 @@
                                     
                                     
                                     
-                                    <td  width='15%'><?php echo "Sim";?>
+                                    <td  width='25%'><?php echo "Sim";?>
                                     <a href="#" onclick="MostraAtendimento_pesq(<?php echo $cod_documento;?>);" id="<?php echo $add_div_atend;?>"  style="display:'';"><i class="far fa-plus-square" style="font-size:20px; color:000000; float: right;"></i></a>
                                     <a href="#" onclick="OcultarAtendimento_pesq(<?php echo $cod_documento;?>);" id="<?php echo $sub_div_atend;?>"  style="display:none;"><i class="far fa-minus-square" style="font-size:20px; color:000000; float: right;"></i></a>
                                     
@@ -754,12 +754,12 @@
                                                                 
                                                                 //Doc. Identificação:
                                                                 $doc="";
+                                                                if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="CPF:".$linha_atend->cod_cpf_cnpj."<br>";}
                                                                 if($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_rg)){
                                                                     $cod_rg= preg_replace('/([A-Za-z0-9]{2})([A-Za-z0-9]{3})([A-Za-z0-9]{3})([A-Za-z0-9]{1})/',"$1.$2.$3-$4",$linha_atend->cod_rg);
-                                                                    $doc.="<p><b>RG:</b>".$cod_rg."</p>"; }
-                                                                if ($linha_atend->ind_pessoa == "PF" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="<p><b>CPF:</b>".$linha_atend->cod_cpf_cnpj."</p>";}
-                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="<p><b>CNPJ:</b>".$linha_atend->cod_cpf_cnpj."</p>";}
-                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ $doc.="<p><b>IE:</b>".$linha_atend->cod_ie."</p>";}
+                                                                    $doc.="RG:".$cod_rg."<br>"; }
+                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_cpf_cnpj)){ $doc.="CNPJ:".$linha_atend->cod_cpf_cnpj."<br>";}
+                                                                if ($linha_atend->ind_pessoa == "PJ" && !empty($linha_atend->cod_ie)){ $doc.="IE:".$linha_atend->cod_ie."<br>";}
 
                                                                 $dat_atendimento=converteDataBR($linha_atend->dat_atendimento);
 
@@ -770,19 +770,17 @@
                                                             }
                                                         }
                                     } else{?>
-                                                <td  width='15%'></td>     
+                                                <td  width='25%'></td>     
                                     <?php }?>
                                                     
                                                     <div id="dadosAtendimento_pesq" >
                                                         <?php 
                                                         if( $cod_atendimento != null && $dados==1){
-                                                            echo"<br><b>Data:</b>".$dat_atendimento ."<br>".
-                                                                "<b>Pessoa:</b>".$nom_nome."<br>";
-
+                                                            echo"<br>".$dat_atendimento ."<br>".
+                                                                $nom_nome."<br>";
                                                                 if ($doc != "") {echo $doc;}
-
-                                                                echo "<b>Tipo:</b>".$nom_tipo."<br>".
-                                                                "<b>Situação:</b>".$nom_status;
+                                                                echo "Tipo:".$nom_tipo."<br>".
+                                                                "Situação:".$nom_status;
                                                         } ?>
                                                     </div>   
                                             </div>                    
@@ -815,7 +813,7 @@
                                                 <div id="dadosResposta_pesq" >
                                                         <?php 
                                                         if($r->dat_resposta!=NULL){
-                                                            echo"<br><b>Data:</b>".$dat_resposta;
+                                                            echo"<br>".$dat_resposta;
                                                         } ?>
                                                     </div>  
                                              

@@ -99,7 +99,8 @@
             $nom_tipo=$linha_atend->nom_tipo;
             $nom_status2=$linha_atend->nom_status;
             
-            $atendimento="$dat_atendimento  \n$nom_nome \n$doc \nTipo: $nom_tipo \nSituação:$nom_status2";
+            $atendimento="$dat_atendimento \n$nom_nome \n$doc \nTipo: $nom_tipo \nSituação:$nom_status2";
+            
         }else{
             $dat_atendimento="";
             $nom_nome="";

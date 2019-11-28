@@ -170,12 +170,20 @@ session_start();
                             <tbody>
                                 <?php foreach($records as $r){?>
                                 <tr>
-                                    <td  width='30%'><?php echo escape($r->nom_usuario); ?></td>
-                                    
-                                    <td  width='10%'><?php if($r->ind_status == 'A') echo 'Ativo'; else if ($r->ind_status == 'N') echo 'Novo usuário'; else echo 'Inativo';?></td>
                                     <?php $nom_usuario=$r->nom_usuario;?>
-                                    <td  width='10%'><?php if($r->ind_status != 'N'){?><a href="form_cad_usuario.php?alt=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-pencil-alt" style="font-size:20px; color:000000;"></i></a><?php } ?></td>
-                                    <td  width='10%'><?php if($r->ind_status != 'N'){?><a href="form_cad_usuario.php?pw=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-lock" style="font-size:20px; color:000000;"></i></a><?php }?></td>
+                                    <td  width='30%'><?php echo escape($nom_usuario); ?></td>
+                                    <?php 
+                                    if($r->ind_status == 'N') {
+                                        //se for Novo Usuário, mostra texto informativo que usuário deve realizar a troca da senha inicial pela senha personalizada
+                                        echo "<td  width='30%'>Aguardando usuário realizar login e alterar senha inicial</td><td></td><td></td>"; 
+                                    }
+                                    else{
+                                    ?>
+                                        <td  width='10%'><?php if($r->ind_status == 'A') echo 'Ativo'; elseif ($r->ind_status == 'I') echo 'Inativo';?></td>
+                                        <td  width='10%'><?php if($r->ind_status != 'N'){?><a href="form_cad_usuario.php?alt=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-pencil-alt" style="font-size:20px; color:000000;"></i></a><?php } ?></td>
+                                        <td  width='10%'><?php if($r->ind_status != 'N'){?><a href="form_cad_usuario.php?pw=1&nom_usuario=<?php echo $nom_usuario; ?>"><i class="fas fa-lock" style="font-size:20px; color:000000;"></i></a><?php }?></td>
+                                    <?php
+                                    } ?>
                                     <td  width='10%'><a href="action_cad_usuario.php?del=1&nom_usuario=<?php echo $nom_usuario; ?>" onclick="return confirm('Confirma exclusão?');"><i class="fas fa-trash-alt" style="font-size:20px; color:000000;"></i></a></td>
                                 </tr>
                                 <?php

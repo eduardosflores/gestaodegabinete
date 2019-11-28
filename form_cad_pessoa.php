@@ -359,7 +359,7 @@
                         <label class="col-md-2 control-label" autocomplete="on"><?php if($_SESSION['ind_pessoa'] == "PF") {echo 'CPF:';}else {echo 'CNPJ:';}?></label>
                         <div class="col-md-3">
                             <input id="<?php if($_SESSION['ind_pessoa'] == "PF") {echo 'cpf';}else {echo 'cnpj';}?>"name="cod_cpf_cnpj" type="text" class="form-control input-md"
-                                   <?php if($_SESSION['ind_pessoa'] == "PF") {?> onblur="javascript: validarCPF(document.form.cpf);" onkeypress="javascript: mascara(this, cpf_mask);"<?php } ?>
+                                   <?php if($_SESSION['ind_pessoa'] == "PF") {?> onblur="javascript: mascara(this, cpf_mask); validarCPF(document.form.cpf.value);" onkeypress="javascript: mascara(this, cpf_mask);"<?php } ?>
                                    maxlength="<?php if($_SESSION['ind_pessoa'] == "PF") {echo '14';}else {echo '18';}?>"
                                    value="<?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_pessoa'])) {echo escape($linha->cod_cpf_cnpj);} elseif (!empty($_SESSION['cod_cpf_cnpj']) && isset($_GET['pesquisa'])) {echo $_SESSION['cod_cpf_cnpj']; }?>"/>
                         <span id="message" ></span>
@@ -820,10 +820,10 @@
                                     <td  width='30%'><?php if ($r->nom_apelido!=NULL) echo escape($r->nom_nome." \"".$r->nom_apelido."\""); else echo escape($r->nom_nome) ; ?></td>
                                     <td  width='20%'>
                                         <?php
-											if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<p><b> CPF:</b>".escape($r->cod_cpf_cnpj)."</p>"; }
-											if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<p><b> RG:</b>".escape($r->cod_rg)."</p>"; }
-											if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<p><b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."</p>"; }
-											if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<p><b> IE:</b>".escape($r->cod_ie)."</p>"; }
+											if ($r->ind_pessoa == "PF" && !empty($r->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($r->cod_cpf_cnpj)."<br>"; }
+											if ($r->ind_pessoa == "PF" && !empty($r->cod_rg)){ echo "<b> RG:</b>".escape($r->cod_rg)."<br>"; }
+											if ($r->ind_pessoa == "PJ" && !empty($r->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($r->cod_cpf_cnpj)."<br>"; }
+											if ($r->ind_pessoa == "PJ" && !empty($r->cod_ie)){ echo "<b> IE:</b>".escape($r->cod_ie)."<br>"; }
 										?>
                                     </td>
 									

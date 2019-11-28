@@ -83,8 +83,28 @@ function login($user, $password, $mysqli) {
     }
 }
 
-
 function login_check($mysqli) {
+    
+    // Verifica se todas as variáveis das sessões foram definidas 
+   if (isset($_SESSION['username'])) {
+ 
+            if ( $_SESSION['ind_status'] == 'N' ){
+                //usuário Novo (primeiro acesso)
+                //acesso não liberado enquanto usuário não alterar senha
+                return false;
+            }
+            else{
+                return true;
+            }        
+        
+    } else {
+        // Não foi logado 
+        return false;
+        //echo 'não existe as variaveis de sessão';
+    }
+}
+
+/*function login_check($mysqli) {
     
     // Verifica se todas as variáveis das sessões foram definidas 
    if (isset($_SESSION['username'], $_SESSION['login_string'])) {
@@ -138,5 +158,6 @@ function login_check($mysqli) {
         return false;
         //echo 'não existe as variaveis de sessão';
     }
-}
+}*/
+
 ?>
