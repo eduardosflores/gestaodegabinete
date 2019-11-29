@@ -27,9 +27,14 @@ session_start();
             ?>
             <h1 class="h2">Manual do Usuário</h1>
 
-            <iframe src="Manual_do_Usuario.pdf" width="800" height="650" style="border: none;"></iframe>
+            <p>
+                Para saber mais sobre o software de Gestão de Gabinete, leia o Manual do Usuário nesta página ou clique <a href="Manual_do_Usuario.pdf">aqui</a> para acessar o documento.
+            </p>
+            <div class="iframe-container">
+                <iframe src="Manual_do_Usuario.pdf"></iframe>
+            </div>
         </div>
-        
+            
         <?php include 'includes/footer.html'; ?>
              
         <?php } else { ?>

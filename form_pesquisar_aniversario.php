@@ -16,11 +16,11 @@
         <script src="js/jquery.maskedinput.js"></script>
         <script src="js/functions.js"></script>
         <script>
-        window.onload = function()
+        /*window.onload = function()
         {
             carregadias_ini();
             carregadias_fim();
-        }
+        }*/
        function carregadias_ini() {
             var select = document.getElementById("dias_inicio");
             select.empty();
@@ -263,8 +263,9 @@
                                 <tr>
                                     <td  width='50%'><?php echo escape($linha->nom_nome); ?></td>
                                     <td  width='30%'>
-                                        <?php if($linha->ind_pessoa == "PF" && !empty($linha->cod_rg)){ echo "<b> RG:</b>".escape($linha->cod_rg); }
+                                        <?php 
                                               if ($linha->ind_pessoa == "PF" && !empty($linha->cod_cpf_cnpj)){ echo "<b> CPF:</b>".escape($linha->cod_cpf_cnpj); }
+                                              if($linha->ind_pessoa == "PF" && !empty($linha->cod_rg)){ echo "<b> RG:</b>".escape($linha->cod_rg); }
                                               if ($linha->ind_pessoa == "PJ" && !empty($linha->cod_cpf_cnpj)){ echo "<b> CNPJ:</b>".escape($linha->cod_cpf_cnpj); }
                                               if ($linha->ind_pessoa == "PJ" && !empty($linha->cod_ie)){ echo "<b> IE:</b>".escape($linha->cod_ie); }
                                         ?>

@@ -290,7 +290,7 @@
                     <div class="form-group">
                         <div class="col-md-5 text-right">
                             <input type="submit" <?php if($cond || isset ($_GET['mod'])) { echo "disabled";}?> class="btn btn-default" <?php if (!empty ($_GET) && isset($_GET['alt']) && isset($_GET['cod_atendimento'])) { echo "value='Alterar'";} else{ echo"value='Cadastrar'";}?>>
-                            <input type="button" class="btn btn-default" value="Limpar" <?php if (isset ($_GET['mod'])){echo "onclick='window.location=form_cad_atendimento.php?mod=1';";} else{echo "onclick='window.location=form_cad_atendimento.php';";} ?>> 
+                            <input type="button" class="btn btn-default" value="Limpar" <?php if (isset ($_GET['mod'])){echo "onclick=window.location='form_cad_atendimento.php?mod=1';";} else{echo "onclick=window.location='form_cad_atendimento.php';";} ?>> 
                             <input type="button" id="pes" class="btn btn-default" value="Pesquisar" onclick="pesquisar();">
                             <input type="button" id="voltar" class="btn btn-default" value="Voltar" onclick="voltarPagina();" <?php if (isset($_GET['mod']) || !isset($_GET['pesquisa']) && !isset($_GET['alt'])){ echo "style='visibility:hidden;'";} else { echo "style='visibility:block;'";}?>	 >
                         </div>
