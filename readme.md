@@ -45,8 +45,8 @@ Siga o passo-a-passo abaixo para instalação e configuração do software "Gest
 
 5. Modifique os campos `HOST`, `DATABASE`, `USER` e `PASSWORD` no seguinte arquivo do projeto: `\gabinete\includes\conexao.php`, conforme definido no item 4.i (`\scripts\1-script-bd.sql`).
 
-6. Realize login no sistema utilizando usuário criado no item 4.iii (*user:admin / senha:admin*)  
-**IMPORTANTE:** Após logon, altere senha do Administrador pelo sistema.
+6. Realize login no sistema utilizando usuário criado no item 4.iii (*usuário:admin / senha:admin*)  
+**IMPORTANTE:** Após logon, altere senha do usuário pelo sistema.
 
 
 ## OBSERVAÇÕES:
