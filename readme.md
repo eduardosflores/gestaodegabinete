@@ -2,7 +2,7 @@
 
 *Desenvolvido pelo **Serviço Tecnológico em Informática da Câmara Municipal de Bauru/SP em software livre e aberto**, sob Licença Pública Geral GNU*
 
-*Para conhecer o software, acesse a **versão demonstrativa**: https://intranet.bauru.sp.leg.br/gabdemo/.* 
+*Para conhecer o software, acesse a **versão demonstrativa**: https://intranet.bauru.sp.leg.br/gabdemo/ (utilizar usuário:admin e senha:admin).* 
 
 Siga o passo-a-passo abaixo para instalação e configuração do software "Gestão de Gabinete".
 
