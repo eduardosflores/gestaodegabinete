@@ -39,7 +39,7 @@ Siga o passo-a-passo abaixo para instalação e configuração do software "Gest
 4. Acesse a ferramenta phpMyAdmin e execute os scripts conforme sequência abaixo:
     1. `\scripts\1-script-bd.sql`
     2. `\scripts\2-script-tables.sql`
-    3. `\scripts\3-script-acesso-admin.sql`
+    3. `\scripts\3-script-dados.sql`
   
     *Obs.: **Antes** de executar, **modificar** os scripts conforme comentário escrito em cada um dos arquivos.*
 
